@@ -114,6 +114,7 @@ dev/
 data/
 *settings.json*
 .changelog*
+*(copy)*
 
 # scripts
 get_*
