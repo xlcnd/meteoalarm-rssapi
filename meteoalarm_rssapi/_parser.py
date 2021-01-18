@@ -1,7 +1,7 @@
 import re
 import feedparser
 
-from ._resources import awl, awt, regions 
+from ._resources import awl, awt, regions
 
 
 RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
