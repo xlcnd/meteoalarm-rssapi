@@ -3,10 +3,10 @@ import feedparser
 
 from ._resources import awl, awt, regions
 
+# TODO Exceptions...
 
 RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
-RE_ALT = re.compile(r'alt="(.*?)"', re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
 RE_AWL = re.compile(r'level:(.*?)"', re.I | re.M | re.S)
 RE_FROM = re.compile(r"From: </b><i>(.*?)</i><b>", re.I | re.M | re.S)
@@ -68,7 +68,7 @@ def _parser(country, region):
                     "from": from_date,
                     "until": until_date,
                     "message": msg,
-                }
+                },
             )
 
     return tuple(result)
