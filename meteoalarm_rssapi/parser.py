@@ -42,7 +42,7 @@ class ParseError(MeteoAlarmException):
 class MeteoAlarm:
     def __init__(self, country, region):
         if not country:
-            raise MeteoAlarmNoCountryError()
+            raise NoCountryError()
         if country not in countries.keys():
             raise UnrecognizedCountryError()
         self._country = country
