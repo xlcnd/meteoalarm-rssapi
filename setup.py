@@ -54,7 +54,7 @@ PYPI_CLASSIFIERS = [
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
-    'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     'Operating System :: OS Independent',
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
@@ -75,8 +75,7 @@ setup(
     author_email=PROJECT_EMAIL,
     packages=PACKAGES,
     license=PROJECT_LICENSE,
-    description=
-    'an "API" for meteoalarm.eu using the rss feeds.',
+    description='an "API" for meteoalarm.eu using the rss feeds.',
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     keywords='meteoalarm',
