@@ -49,7 +49,7 @@ class MeteoAlarm:
         if not region:
             raise NoRegionError()
         self._region = region
-        if country in ("DE", "FR", "SP", "IT"):
+        if country in ("DE", "FR", "ES", "IT"):
             try:
                 code = regions[country][region]
             except KeyError:
@@ -62,6 +62,13 @@ class MeteoAlarm:
                 country=country.lower()
             )
         self._url = url
+
+#    @staticmethod
+#    def countries():
+#        return tuple(countries.keys())
+
+#    def country_regions(self):
+#        return regions[self._country]
 
     def get_alerts(self):
         try:
