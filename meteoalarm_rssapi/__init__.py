@@ -10,4 +10,4 @@ from .parser import (
 from ._resources import awt, awl, countries
 
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
