@@ -26,7 +26,7 @@ from meteoalarm_rssapi import __version__
 PROJECT_NAME = 'meteoalarm_rssapi'
 PROJECT_PACKAGE_NAME = 'meteoalarm_rssapi'
 PROJECT_LICENSE = 'GPL v3'
-PROJECT_LICENSE_URL = 'https://github.com/xlcnd/meteoalarm_rssapi/blob/dev/LICENSE'
+PROJECT_LICENSE_URL = 'https://github.com/xlcnd/meteoalarm-rssapi/blob/dev/LICENSE'
 PROJECT_AUTHOR = 'Alexandre Lima Conde'
 PROJECT_COPYRIGHT = '{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
 PROJECT_URL = 'https://github.com/xlcnd/meteoalarm-rssapi'
@@ -34,7 +34,7 @@ PROJECT_EMAIL = 'xlcnd@outlook.com'
 PROJECT_VERSION = __version__
 
 PROJECT_GITHUB_USERNAME = 'xlcnd'
-PROJECT_GITHUB_REPOSITORY = 'meteoalarm_rssapi'
+PROJECT_GITHUB_REPOSITORY = 'meteoalarm-rssapi'
 
 GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
                              PROJECT_GITHUB_REPOSITORY)
