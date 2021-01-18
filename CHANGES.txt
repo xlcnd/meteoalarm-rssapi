@@ -1,4 +1,4 @@
 v0.0.1, 2021-01-18 -- Initial release (alpha).
 v0.0.2, 2021-01-18 -- fix some project urls.
 v0.0.3, 2021-01-18 -- add Exceptions and MeteoAlarm class.
-v0.0.4, 2021-01-18 -- TENTATIVE
+v0.0.4, 2021-01-18 -- fix dependencies on pypi package.
