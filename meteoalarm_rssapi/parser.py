@@ -49,7 +49,7 @@ class MeteoAlarm:
         if not region:
             raise NoRegionError()
         self._region = region
-        if country in ("DE", "FR", "ES", "IT"):
+        if country in ("DE", "FR", "ES", "IT", "PL"):
             try:
                 code = regions[country][region]
             except KeyError:
