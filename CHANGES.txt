@@ -5,3 +5,4 @@ v0.0.4, 2021-01-18 -- fix dependencies on pypi package.
 v0.0.5, 2021-01-18 -- fix Spain code and add more regions to DE.
 v0.0.6, 2021-01-19 -- change the name of main method and add resources info.
 v0.0.7, 2021-01-19 -- updated data and documentation.
+v0.0.8, 2021-01-19 -- TENTATIVE
