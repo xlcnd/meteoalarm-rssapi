@@ -9,7 +9,7 @@ Lets see a simple example:
      print(meteo.alerts())
 
 
-and you will get:
+and you will get (after some `pprint`):
 
      awareness_type: Snow/Ice
      awareness_level: Yellow
@@ -30,4 +30,4 @@ and you will get:
 You need to know your iso 2-letter country code (e.g. DE) and the name of your region
 **as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler).
 
-Please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
+For that, please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
