@@ -63,14 +63,22 @@ class MeteoAlarm:
             )
         self._url = url
 
-#    @staticmethod
-#    def countries():
-#        return tuple(countries.keys())
+    @staticmethod
+    def countries():
+        return tuple(countries.keys())
 
-#    def country_regions(self):
-#        return regions[self._country]
+    @staticmethod
+    def awareness_levels():
+        return tuple(awl.values())
 
-    def get_alerts(self):
+    @staticmethod
+    def awareness_types():
+        return tuple(awt.values())
+
+    def country_regions(self):
+        return regions[self._country]
+
+    def alerts(self):
         try:
             feed = feedparser.parse(self._url)
             alerts = [
