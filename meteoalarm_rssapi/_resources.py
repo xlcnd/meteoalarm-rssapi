@@ -1,4 +1,4 @@
-# Produced by 'meteoalarm-tools' in '2021-01-19UTC09:42'
+# Produced by 'meteoalarm-tools' @'2021-01-19UTC15:25'
 
 # TODO Build database of regions (for big countries) 
 #      and get the rss directly for the region
