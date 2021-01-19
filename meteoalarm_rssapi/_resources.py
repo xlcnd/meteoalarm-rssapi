@@ -1,5 +1,7 @@
-# TODO Build database of regions and get the rss directly for the region
-#      For now, just for big countries!
+# Produced by 'meteoalarm-tools' in '2021-01-19UTC09:42'
+
+# TODO Build database of regions (for big countries) 
+#      and get the rss directly for the region
 
 regions = {
     "AT": {},
@@ -39,6 +41,8 @@ regions = {
 "Kreis Alzey-Worms":"397",
 "Kreis Amberg-Sulzbach":"353",
 "Kreis Anhalt-Bitterfeld":"357",
+"Kreis Aurich - Binnenland":"102",
+"Kreis Aurich - Küste":"103",
 "Kreis Bad Dürkheim":"390",
 "Kreis Bad Kissingen":"409",
 "Kreis Bad Kreuznach":"143",
@@ -57,6 +61,7 @@ regions = {
 "Kreis Calw":"152",
 "Kreis Celle":"138",
 "Kreis Cham":"309",
+"Kreis Cloppenburg":"200",
 "Kreis Cochem-Zell":"214",
 "Kreis Coesfeld":"125",
 "Kreis Cuxhaven - Binnenland":"030",
@@ -76,6 +81,7 @@ regions = {
 "Kreis Eichstätt":"303",
 "Kreis Elbe-Elster":"261",
 "Kreis Emmendingen":"227",
+"Kreis Emsland":"376",
 "Kreis Erding":"339",
 "Kreis Erlangen-Höchstadt":"196",
 "Kreis Esslingen":"302",
@@ -96,6 +102,7 @@ regions = {
 "Kreis Goslar":"328",
 "Kreis Gotha":"193",
 "Kreis Göttingen":"151",
+"Kreis Grafschaft Bentheim":"237",
 "Kreis Greiz":"352",
 "Kreis Groß-Gerau":"166",
 "Kreis Günzburg":"388",
@@ -126,6 +133,7 @@ regions = {
 "Kreis Kulmbach":"245",
 "Kreis Kusel":"160",
 "Kreis Landsberg am Lech":"130",
+"Kreis Leer":"069",
 "Kreis Leipzig":"179",
 "Kreis Lichtenfels":"178",
 "Kreis Limburg-Weilburg":"341",
@@ -244,6 +252,7 @@ regions = {
 "Kreis und Stadt München":"056",
 "Kreis und Stadt Offenbach":"041",
 "Kreis und Stadt Oldenburg":"079",
+"Kreis und Stadt Osnabrück":"024",
 "Kreis und Stadt Passau":"066",
 "Kreis und Stadt Regensburg":"049",
 "Kreis und Stadt Rosenheim":"029",
@@ -251,6 +260,7 @@ regions = {
 "Kreis und Stadt Würzburg":"077",
 "Kreis Unna":"235",
 "Kreis Unterallgäu":"249",
+"Kreis Vechta":"188",
 "Kreis Verden":"393",
 "Kreis Viersen":"113",
 "Kreis Vulkaneifel":"356",
@@ -264,6 +274,7 @@ regions = {
 "Kreis Wesermarsch - Binnenland":"064",
 "Kreis Wesermarsch - Küste":"101",
 "Kreis Wittenberg":"263",
+"Kreis Wittmund - Küste":"083",
 "Kreis Wolfenbüttel":"220",
 "Kreis Wunsiedel":"213",
 "Kreis Zwickau - Bergland":"044",
@@ -329,6 +340,7 @@ regions = {
 "Stadt Duisburg":"336",
 "Stadt Düsseldorf":"128",
 "Stadt Eisenach":"286",
+"Stadt Emden":"154",
 "StädteRegion Aachen":"258",
 "Stadt Erfurt":"359",
 "Stadt Erlangen":"139",
@@ -354,6 +366,7 @@ regions = {
 "Stadt Leipzig":"126",
 "Stadt Leverkusen":"256",
 "Stadt Magdeburg":"278",
+"Stadt Mannheim":"184",
 "Stadt Memmingen":"174",
 "Stadt Mönchengladbach":"114",
 "Stadt Mülheim an der Ruhr":"132",
@@ -368,6 +381,7 @@ regions = {
 "Stadt Schwabach":"246",
 "Stadt Schwerin":"331",
 "Stadt Solingen":"186",
+"Stadt Speyer":"287",
 "Stadt Stuttgart":"226",
 "Stadt Suhl":"208",
 "Stadt Weiden in der Oberpfalz":"316",
