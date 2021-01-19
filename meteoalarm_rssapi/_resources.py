@@ -1,8 +1,5 @@
 # Produced by 'meteoalarm-tools' @'2021-01-19UTC15:25'
 
-# TODO Build database of regions (for countries with many regions) 
-#      and get the rss directly for the region
-
 regions = {
     "AT": {},
     "BA": {},
