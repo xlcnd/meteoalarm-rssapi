@@ -1,4 +1,7 @@
 import re
+
+from zlib import crc32
+
 import feedparser
 
 from ._resources import awl, awt, regions, countries
@@ -115,6 +118,7 @@ class MeteoAlarm:
                     msg = RE_MSG.search(row).group(1).strip()
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
+                    crc = crc32(bytes(from_date + until_date + msg, 'utf-8'))
 
                     result.append(
                         {
@@ -125,6 +129,7 @@ class MeteoAlarm:
                             "from": from_date,
                             "until": until_date,
                             "message": msg,
+                            "message_id": crc,
                         },
                     )
 
