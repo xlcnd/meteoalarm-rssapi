@@ -47,6 +47,7 @@ class MeteoAlarm:
     def __init__(self, country, region):
         if not country:
             raise NoCountryError()
+        country = country.upper()
         if country not in countries.keys():
             raise UnrecognizedCountryError()
         self._country = country
