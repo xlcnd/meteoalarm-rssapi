@@ -16,6 +16,7 @@ RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
 class MeteoAlarmException(Exception):
     """Base class."""
+
     pass
 
 
