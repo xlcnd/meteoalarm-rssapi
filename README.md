@@ -14,6 +14,7 @@ print(meteo.alerts())
 and you will get (after some `pprint`):
 
 ```
+message_id: 1817809724
 awareness_type: Snow/Ice
 awareness_level: Yellow
 country: DE
