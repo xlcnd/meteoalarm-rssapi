@@ -23,6 +23,10 @@ class MeteoAlarmException(Exception):
     pass
 
 
+class ServerDownError(MeteoAlarmException):
+    pass
+
+
 class NoCountryError(MeteoAlarmException):
     pass
 
@@ -85,7 +89,11 @@ class MeteoAlarm:
 
     def alerts(self):
         try:
+
             feed = feedparser.parse(self._url)
+            if feed.status != 200:
+                raise ServerDownError()
+
             alerts = [
                 entry["description"]
                 for entry in feed["entries"]
@@ -119,7 +127,7 @@ class MeteoAlarm:
                     msg = RE_MSG.search(row).group(1).strip()
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
-                    crc = crc32(bytes(from_date + until_date + msg, 'utf-8'))
+                    crc = crc32(bytes(from_date + until_date + msg, "utf-8"))
 
                     result.append(
                         {
@@ -133,8 +141,28 @@ class MeteoAlarm:
                             "message_id": crc,
                         },
                     )
+        except ServerDownError:
+            from datetime import datetime
+            from pytz import timezone
 
+            cet = timezone("Europe/Vienna")
+            fmt = "%d.%m.%Y %H:%M %Z"
+            now = datetime.now(cet)
+            from_date = now.strftime(fmt)
+            until_date = from_date
+            msg = ("Server meteoalarm.eu is down!",)
+            crc = crc32(bytes(msg, "utf-8"))
+            result = {
+                "country": self._country.upper(),
+                "region": self._region,
+                "awareness_type": "System",
+                "awareness_level": "White",
+                "from": from_date,
+                "until": until_date,
+                "message": "Server meteoalarm.eu is down!",
+                "message_id": crc,
+            }
         except Exception:
-            raise ParseError
+            raise ParseError()
 
         return tuple(result)
