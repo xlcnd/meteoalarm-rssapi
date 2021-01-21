@@ -155,7 +155,7 @@ class MeteoAlarm:
             result = {
                 "country": self._country.upper(),
                 "region": self._region,
-                "awareness_type": "System",
+                "awareness_type": "SYSTEM",
                 "awareness_level": "White",
                 "from": from_date,
                 "until": until_date,
