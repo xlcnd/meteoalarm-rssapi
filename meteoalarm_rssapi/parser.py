@@ -23,46 +23,46 @@ class MeteoAlarmException(Exception):
     pass
 
 
-class ServerDownError(MeteoAlarmException):
+class MeteoAlarmServerDownError(MeteoAlarmException):
     pass
 
 
-class NoCountryError(MeteoAlarmException):
+class MeteoAlarmNoCountryError(MeteoAlarmException):
     pass
 
 
-class NoRegionError(MeteoAlarmException):
+class MeteoAlarmNoRegionError(MeteoAlarmException):
     pass
 
 
-class UnrecognizedCountryError(MeteoAlarmException):
+class MeteoAlarmUnrecognizedCountryError(MeteoAlarmException):
     pass
 
 
-class UnrecognizedRegionError(MeteoAlarmException):
+class MeteoAlarmUnrecognizedRegionError(MeteoAlarmException):
     pass
 
 
-class ParseError(MeteoAlarmException):
+class MeteoAlarmParseError(MeteoAlarmException):
     pass
 
 
 class MeteoAlarm:
     def __init__(self, country, region):
         if not country:
-            raise NoCountryError()
+            raise MeteoAlarmNoCountryError()
         country = country.upper()
         if country not in countries.keys():
-            raise UnrecognizedCountryError()
+            raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
         if not region:
-            raise NoRegionError()
+            raise MeteoAlarmNoRegionError()
         self._region = region
         if country in ("DE", "FR", "ES", "IT", "PL"):
             try:
                 code = regions[country][region]
             except KeyError:
-                raise UnrecognizedRegionError()
+                raise MeteoAlarmUnrecognizedRegionError()
             url = "https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss".format(
                 iso=country.lower(), country=country.upper(), code=code
             )
@@ -71,6 +71,7 @@ class MeteoAlarm:
                 country=country.lower()
             )
         self._url = url
+        self.status = 'unk'
 
     @staticmethod
     def countries():
@@ -92,7 +93,8 @@ class MeteoAlarm:
 
             feed = feedparser.parse(self._url)
             if feed.status != 200:
-                raise ServerDownError()
+                raise MeteoAlarmServerDownError()
+            self.status = 'ok'
 
             alerts = [
                 entry["description"]
@@ -141,28 +143,10 @@ class MeteoAlarm:
                             "message_id": crc,
                         },
                     )
-        except ServerDownError:
-            from datetime import datetime
-            from pytz import timezone
-
-            cet = timezone("Europe/Vienna")
-            fmt = "%d.%m.%Y %H:%M %Z"
-            now = datetime.now(cet)
-            from_date = now.strftime(fmt)
-            until_date = from_date
-            msg = ("Server meteoalarm.eu is down!",)
-            crc = crc32(bytes(msg, "utf-8"))
-            result = {
-                "country": self._country.upper(),
-                "region": self._region,
-                "awareness_type": "SYSTEM",
-                "awareness_level": "White",
-                "from": from_date,
-                "until": until_date,
-                "message": "Server meteoalarm.eu is down!",
-                "message_id": crc,
-            }
+        except MeteoAlarmServerDownError:
+            self.status = 'err'
         except Exception:
-            raise ParseError()
+            self.status = 'err'
+            raise MeteoAlarmParseError()
 
         return tuple(result)
