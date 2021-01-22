@@ -41,7 +41,6 @@ class MeteoAlarmParseError(MeteoAlarmException):
 
 class MeteoAlarm:
     def __init__(self, country, region):
-        self.status = 'unk'
         country = country.upper()
         if country not in countries.keys():
             raise MeteoAlarmUnrecognizedCountryError()
@@ -81,9 +80,7 @@ class MeteoAlarm:
 
             feed = feedparser.parse(self._url)
             if feed.status != 200:
-                self.status = 'err'
                 raise MeteoAlarmServiceError()
-            self.status = 'ok'
 
             alerts = [
                 entry["description"]
@@ -134,8 +131,6 @@ class MeteoAlarm:
             return tuple(result)
 
         except MeteoAlarmServiceError:
-            self.status = 'err'
-            return ()
+            raise MeteoAlarmServiceError()
         except Exception:
-            self.status = 'err'
             raise MeteoAlarmParseError()
