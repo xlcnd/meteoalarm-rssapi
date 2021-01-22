@@ -1,5 +1,5 @@
 
-An **alpha** version of an API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
+An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
 Lets see a simple example:
 
@@ -33,6 +33,5 @@ message:
 ```
 
 You need to know your iso 2-letter country code (e.g. DE) and the name of your region
-**as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler).
-
-For that, please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
+**as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that, 
+please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).

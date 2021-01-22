@@ -56,7 +56,7 @@ PYPI_CLASSIFIERS = [
     'Programming Language :: Python :: 3.9',
     'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     'Operating System :: OS Independent',
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Libraries :: Python Modules',
 ]
