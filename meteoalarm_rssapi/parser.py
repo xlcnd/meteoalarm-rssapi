@@ -16,7 +16,7 @@ RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
-MANY_REGIONS_COUNTRIES = ("DE", "FR", "ES", "IT", "PL")
+MANY_REGIONS_COUNTRIES = ("DE", "FR", "ES", "IT", "PL", "PT", "NO", "SE")
 
 
 class MeteoAlarmException(Exception):
@@ -76,8 +76,8 @@ class MeteoAlarm:
 
     def country_regions(self):
         if self._country in MANY_REGIONS_COUNTRIES:
-            return regions[self._country]
-        return ['Please check "meteoalarm.eu" for the exact name of your region']
+            return tuple(regions[self._country].keys())
+        return ('Please check "meteoalarm.eu" for the exact name of your region',)
 
     def alerts(self):
         try:
