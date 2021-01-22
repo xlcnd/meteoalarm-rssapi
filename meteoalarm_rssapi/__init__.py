@@ -1,11 +1,10 @@
 from .parser import (
     MeteoAlarm,
     MeteoAlarmException,
-    MeteoAlarmNoCountryError,
-    MeteoAlarmNoRegionError,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
     MeteoAlarmParseError,
+    MeteoAlarmServiceError
 )
 
 __version__ = "0.1.0"

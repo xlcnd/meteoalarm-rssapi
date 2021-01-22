@@ -23,15 +23,7 @@ class MeteoAlarmException(Exception):
     pass
 
 
-class MeteoAlarmServerDownError(MeteoAlarmException):
-    pass
-
-
-class MeteoAlarmNoCountryError(MeteoAlarmException):
-    pass
-
-
-class MeteoAlarmNoRegionError(MeteoAlarmException):
+class MeteoAlarmServiceError(MeteoAlarmException):
     pass
 
 
@@ -49,14 +41,11 @@ class MeteoAlarmParseError(MeteoAlarmException):
 
 class MeteoAlarm:
     def __init__(self, country, region):
-        if not country:
-            raise MeteoAlarmNoCountryError()
+        self.status = 'unk'
         country = country.upper()
         if country not in countries.keys():
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
-        if not region:
-            raise MeteoAlarmNoRegionError()
         self._region = region
         if country in ("DE", "FR", "ES", "IT", "PL"):
             try:
@@ -71,7 +60,6 @@ class MeteoAlarm:
                 country=country.lower()
             )
         self._url = url
-        self.status = 'unk'
 
     @staticmethod
     def countries():
@@ -93,7 +81,8 @@ class MeteoAlarm:
 
             feed = feedparser.parse(self._url)
             if feed.status != 200:
-                raise MeteoAlarmServerDownError()
+                self.status = 'err'
+                raise MeteoAlarmServiceError()
             self.status = 'ok'
 
             alerts = [
@@ -117,7 +106,6 @@ class MeteoAlarm:
             result = []
             rows = RE_TR.findall(buf)
             for i, row in enumerate(rows):
-
                 if i % 2 == 0:
                     # get: awt, awl, from and until from rows 0, 2, 4, ...
                     atype = RE_AWT.search(row).group(1)
@@ -143,10 +131,11 @@ class MeteoAlarm:
                             "message_id": crc,
                         },
                     )
-        except MeteoAlarmServerDownError:
+            return tuple(result)
+
+        except MeteoAlarmServiceError:
             self.status = 'err'
+            return ()
         except Exception:
             self.status = 'err'
             raise MeteoAlarmParseError()
-
-        return tuple(result)
