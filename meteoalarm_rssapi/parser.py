@@ -16,6 +16,8 @@ RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
+MANY_REGIONS_COUNTRIES = ("DE", "FR", "ES", "IT", "PL")
+
 
 class MeteoAlarmException(Exception):
     """Base class."""
@@ -46,7 +48,7 @@ class MeteoAlarm:
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
         self._region = region
-        if country in ("DE", "FR", "ES", "IT", "PL"):
+        if country in MANY_REGIONS_COUNTRIES:
             try:
                 code = regions[country][region]
             except KeyError:
@@ -73,7 +75,9 @@ class MeteoAlarm:
         return tuple(awt.values())
 
     def country_regions(self):
-        return regions[self._country]
+        if self._country in MANY_REGIONS_COUNTRIES:
+            return regions[self._country]
+        return ['Please check "meteoalarm.eu" for the exact name of your region']
 
     def alerts(self):
         try:
