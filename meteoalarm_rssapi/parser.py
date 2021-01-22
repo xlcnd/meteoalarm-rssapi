@@ -107,6 +107,7 @@ class MeteoAlarm:
             result = []
             rows = RE_TR.findall(buf)
             for i, row in enumerate(rows):
+
                 if i % 2 == 0:
                     # get: awt, awl, from and until from rows 0, 2, 4, ...
                     atype = RE_AWT.search(row).group(1)
@@ -119,7 +120,6 @@ class MeteoAlarm:
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
                     crc = crc32(bytes(from_date + until_date + msg, "utf-8"))
-
                     result.append(
                         {
                             "country": self._country.upper(),
@@ -132,6 +132,7 @@ class MeteoAlarm:
                             "message_id": crc,
                         },
                     )
+
             return tuple(result)
 
         except MeteoAlarmServiceError:
