@@ -45,3 +45,6 @@ There are two pieces of information that could be important for your application
    day/month of `from`. So, doesn't change if there are only a revision of the H:M, a revision
    for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `from`, `until` or `awareness_level`.
+
+In conclusion, or one `alert_id` there are several `message_id` 
+(that can be taken as the revisions of the `alert_id`).
