@@ -9,4 +9,4 @@ v0.0.8, 2021-01-19 -- full codes for big countries.
 v0.0.9, 2021-01-20 -- add regions for PL and add field 'message_id'.
 v0.1.0, 2021-01-22 -- more defensive code.
 v0.1.1, 2021-01-23 -- add more countries to MANY_REGIONS_COUNTRIES.
-v0.1.2, 2021-01-23 -- TENTATIVE
+v0.1.2, 2021-01-23 -- add 'alert_id'.
