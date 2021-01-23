@@ -1,10 +1,11 @@
 import re
 
+from urllib.error import HTTPError, URLError
 from zlib import crc32
 
 import feedparser
 
-from ._resources import awl, awt, regions, countries
+from ._resources import awl, awt, countries as res_countries, regions
 
 
 RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
@@ -17,6 +18,10 @@ RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
 MANY_REGIONS_COUNTRIES = ("DE", "FR", "ES", "IT", "PL", "PT", "NO", "SE")
+
+awareness_levels = tuple(awl.values())
+awareness_types = tuple(awt.values())
+countries = tuple(res_countries.keys())
 
 
 class MeteoAlarmException(Exception):
@@ -44,7 +49,7 @@ class MeteoAlarmParseError(MeteoAlarmException):
 class MeteoAlarm:
     def __init__(self, country, region):
         country = country.upper()
-        if country not in countries.keys():
+        if country not in countries:
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
         self._region = region
@@ -64,22 +69,18 @@ class MeteoAlarm:
 
     @staticmethod
     def countries():
-        return tuple(countries.keys())
+        return countries
 
     @staticmethod
     def awareness_levels():
-        return tuple(awl.values())
+        return awareness_levels
 
     @staticmethod
     def awareness_types():
-        return tuple(awt.values())
+        return awareness_types
 
     def country_regions(self):
-        if self._country in MANY_REGIONS_COUNTRIES:
-            return tuple(regions[self._country].keys())
-        return (
-            'Please check "meteoalarm.eu" for the regions of {}'.format(self._country),
-        )
+        return get_regions(self._country)
 
     def alerts(self):
         try:
@@ -121,9 +122,11 @@ class MeteoAlarm:
                     msg = RE_MSG.search(row).group(1).strip()
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
-                    crc = crc32(bytes(from_date + until_date + msg, "utf-8"))
+                    mcrc = crc32(bytes(from_date + until_date + alevel + msg, "utf-8"))
+                    acrc = crc32(bytes(from_date[0:5] + msg, "utf-8"))
                     result.append(
                         {
+                            "alert_id": acrc,
                             "country": self._country.upper(),
                             "region": self._region,
                             "awareness_type": awt[atype],
@@ -131,13 +134,19 @@ class MeteoAlarm:
                             "from": from_date,
                             "until": until_date,
                             "message": msg,
-                            "message_id": crc,
+                            "message_id": mcrc,
                         },
                     )
 
             return tuple(result)
 
-        except (URLError, MeteoAlarmServiceError):
+        except (HTTPError, URLError, MeteoAlarmServiceError):
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
+
+
+def get_regions(country):
+    if country in MANY_REGIONS_COUNTRIES:
+        return tuple(regions[country].keys())
+    return ('Please check "meteoalarm.eu" for the regions of {}'.format(country),)
