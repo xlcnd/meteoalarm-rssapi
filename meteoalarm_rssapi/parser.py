@@ -81,8 +81,9 @@ class MeteoAlarm:
 
     def alerts(self):
         try:
-
+            
             feed = feedparser.parse(self._url)
+
             if feed.status != 200:
                 raise MeteoAlarmServiceError()
 
@@ -135,7 +136,7 @@ class MeteoAlarm:
 
             return tuple(result)
 
-        except MeteoAlarmServiceError:
+        except (URLError, MeteoAlarmServiceError):
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
