@@ -85,7 +85,6 @@ class MeteoAlarm:
         try:
 
             feed = feedparser.parse(self._url)
-
             if feed.status != 200:
                 raise MeteoAlarmServiceError()
 
