@@ -77,11 +77,13 @@ class MeteoAlarm:
     def country_regions(self):
         if self._country in MANY_REGIONS_COUNTRIES:
             return tuple(regions[self._country].keys())
-        return ('Please check "meteoalarm.eu" for the exact name of your region',)
+        return (
+            'Please check "meteoalarm.eu" for the regions of {}'.format(self._country),
+        )
 
     def alerts(self):
         try:
-            
+
             feed = feedparser.parse(self._url)
 
             if feed.status != 200:
