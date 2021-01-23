@@ -39,9 +39,9 @@ You need to know your iso 2-letter country code (e.g. DE) and the name of your r
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
 
 
-There are pieces of information that could be important for your applications:
+There are two pieces of information that could be important for your applications:
 
-1. `alert_id` this changes to a new value when there is a change in the `message` or in the 
+1. `alert_id` changes to a new value when there is a change in the `message` or in the 
    day/month of `from`. So, doesn't change if there are only a revision of the H:M, a revision
    for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `from`, `until` or `awareness_level`.
