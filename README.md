@@ -46,5 +46,5 @@ There are two pieces of information that could be important for your application
    for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `from`, `until` or `awareness_level`.
 
-In conclusion, or one `alert_id` there are several `message_id` 
+In conclusion, for one `alert_id` there are several `message_id` 
 (that can be taken as the revisions of the `alert_id`).
