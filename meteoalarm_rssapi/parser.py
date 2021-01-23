@@ -122,8 +122,8 @@ class MeteoAlarm:
                     msg = RE_MSG.search(row).group(1).strip()
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
-                    mcrc = crc32(bytes(from_date + until_date + alevel + msg, "utf-8"))
-                    acrc = crc32(bytes(from_date[0:5] + msg, "utf-8"))
+                    mcrc = crc32(bytes(atype + from_date + until_date + alevel + msg, "utf-8"))
+                    acrc = crc32(bytes(atype + from_date[0:5] + msg, "utf-8"))
                     result.append(
                         {
                             "alert_id": acrc,
