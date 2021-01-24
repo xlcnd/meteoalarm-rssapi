@@ -1,5 +1,6 @@
 import re
 
+from socket import timeout
 from urllib.error import HTTPError, URLError
 from zlib import crc32
 
@@ -140,7 +141,7 @@ class MeteoAlarm:
 
             return tuple(result)
 
-        except (HTTPError, URLError, MeteoAlarmServiceError):
+        except (timeout, HTTPError, URLError, MeteoAlarmServiceError):
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
