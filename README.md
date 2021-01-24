@@ -1,7 +1,13 @@
 
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
-Lets see a simple example:
+To install enter in a command line:
+
+```
+pip install meteoalarm-rssapi
+```
+
+Now, lets see a simple example:
 
 ```python
 from meteoalarm_rssapi import MeteoAlarm
