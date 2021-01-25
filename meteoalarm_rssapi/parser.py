@@ -1,12 +1,18 @@
 import re
 
-from socket import timeout
-from urllib.error import HTTPError, URLError
 from zlib import crc32
 
 import feedparser
 
+from ._exceptions import (
+    MeteoAlarmException,
+    MeteoAlarmUnrecognizedCountryError,
+    MeteoAlarmUnrecognizedRegionError,
+    MeteoAlarmParseError,
+    MeteoAlarmServiceError,
+)
 from ._resources import awl, awt, countries as res_countries, regions
+from ._webquery import query
 
 
 RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
@@ -18,33 +24,11 @@ RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
-MANY_REGIONS_COUNTRIES = ("DE", "FR", "ES", "IT", "PL", "PT", "NO", "SE")
+MANY_REGIONS_COUNTRIES = ("DE", "ES", "FR", "IT", "NO", "PL", "PT", "SE")
 
 awareness_levels = tuple(awl.values())
 awareness_types = tuple(awt.values())
 countries = tuple(res_countries.keys())
-
-
-class MeteoAlarmException(Exception):
-    """Base class."""
-
-    pass
-
-
-class MeteoAlarmServiceError(MeteoAlarmException):
-    pass
-
-
-class MeteoAlarmUnrecognizedCountryError(MeteoAlarmException):
-    pass
-
-
-class MeteoAlarmUnrecognizedRegionError(MeteoAlarmException):
-    pass
-
-
-class MeteoAlarmParseError(MeteoAlarmException):
-    pass
 
 
 class MeteoAlarm:
@@ -86,9 +70,7 @@ class MeteoAlarm:
     def alerts(self):
         try:
 
-            feed = feedparser.parse(self._url)
-            if feed.status != 200:
-                raise MeteoAlarmServiceError()
+            feed = feedparser.parse(query(self._url))
 
             alerts = [
                 entry["description"]
@@ -123,7 +105,9 @@ class MeteoAlarm:
                     msg = RE_MSG.search(row).group(1).strip()
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
-                    mcrc = crc32(bytes(atype + from_date + until_date + alevel + msg, "utf-8"))
+                    mcrc = crc32(
+                        bytes(atype + from_date + until_date + alevel + msg, "utf-8")
+                    )
                     acrc = crc32(bytes(atype + from_date[0:5] + msg, "utf-8"))
                     result.append(
                         {
@@ -141,7 +125,7 @@ class MeteoAlarm:
 
             return tuple(result)
 
-        except (timeout, HTTPError, URLError, MeteoAlarmServiceError):
+        except MeteoAlarmServiceError:
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()

@@ -1,10 +1,12 @@
-from .parser import (
-    MeteoAlarm,
+from ._exceptions import (
     MeteoAlarmException,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
+)
+from .parser import (
+    MeteoAlarm,
     awareness_levels,
     awareness_types,
     countries,

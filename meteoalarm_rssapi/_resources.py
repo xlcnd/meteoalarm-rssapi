@@ -1367,7 +1367,7 @@ countries = {
     "MT": ("MT-Malta", "English,Malti"),
     "NL": ("NL-Netherlands", "nederlands,english"),
     "NO": ("NO-Norway", "norsk"),
-    "PL": ("PL-Poland", "polski"),
+    "PL": ("PL-Poland", "polski,english"),
     "PT": ("PT-Portugal", "português,english"),
     "RO": ("RO-Romania", "româna,english"),
     "RS": ("RS-Serbia", "српски"),
