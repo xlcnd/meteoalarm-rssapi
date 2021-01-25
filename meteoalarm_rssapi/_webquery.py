@@ -21,6 +21,8 @@ class WEBQuery(object):
     """Class to query web services."""
 
     def __init__(self, url, timeout=TIMEOUT):
+        if not url.lower().startswith('http'):
+            raise MeteoAlarmServiceError('Url (%s) not allowed!' % url)
         self._url = url
         self._timeout = timeout
         headers = {"Accept-Encoding": "gzip", "User-Agent": UA}
