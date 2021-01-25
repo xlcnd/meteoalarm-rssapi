@@ -5,7 +5,7 @@ from ._exceptions import (
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
 )
-from .parser import (
+from ._parser import (
     MeteoAlarm,
     awareness_levels,
     awareness_types,
