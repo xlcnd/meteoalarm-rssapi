@@ -116,8 +116,8 @@ class MeteoAlarm:
                             "region": self._region,
                             "awareness_type": awt[atype],
                             "awareness_level": awl[alevel][0],
-                            "from": from_date,
-                            "until": until_date,
+                            "from": cet2iso8601(from_date),
+                            "until": cet2iso8601(until_date),
                             "message": msg,
                             "message_id": mcrc,
                         },
@@ -129,6 +129,11 @@ class MeteoAlarm:
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
+
+
+def cet2iso8601(cet):
+    buf = cet.replace(' CET', '+01:00').replace(' CEST', '+02:00')
+    return '-'.join((buf[6:10], buf[3:5], buf[0:2])) + 'T' + buf[11:] 
 
 
 def get_regions(country):
