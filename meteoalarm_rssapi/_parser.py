@@ -132,7 +132,7 @@ class MeteoAlarm:
 
 
 def cet2iso8601(cet):
-    buf = cet.replace(' CET', '+01:00').replace(' CEST', '+02:00')
+    buf = cet.replace(' CET', ':00+01:00').replace(' CEST', ':00+02:00')
     return '-'.join((buf[6:10], buf[3:5], buf[0:2])) + 'T' + buf[11:] 
 
 
