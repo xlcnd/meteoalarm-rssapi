@@ -27,8 +27,8 @@ awareness_type: Snow/Ice
 awareness_level: Yellow
 country: DE
 region: Kreis Ahrweiler
-from: 19.01.2021 10:00 CET
-until: 19.01.2021 12:00 CET
+from: 2021-01-26T18:00:00+01:00
+until: 2021-01-27T11:00:00+01:00
 message:
   deutsch: Es tritt im Warnzeitraum oberhalb 400 m leichter
   Schneefall mit Mengen zwischen 1 cm und 3 cm auf. In Staulagen
