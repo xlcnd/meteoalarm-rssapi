@@ -50,7 +50,7 @@ You need to know your iso 2-letter country code (e.g. DE) and the **exact name**
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
 
 
-The timestamps for `from` and `until` are in format ISO8601 so that you can 
+The timestamps for `from` and `until` are in ISO8601 format, so that you can 
 (*easily*) convert them to your local date/time. 
 
 
