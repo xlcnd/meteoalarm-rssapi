@@ -106,9 +106,19 @@ class MeteoAlarm:
                     msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
                     mcrc = crc32(
-                        bytes(self._region + atype + from_date + until_date + alevel + msg, "utf-8")
+                        bytes(
+                            self._region
+                            + atype
+                            + from_date
+                            + until_date
+                            + alevel
+                            + msg,
+                            "utf-8",
+                        )
                     )
-                    acrc = crc32(bytes(self._region + atype + from_date[0:5] + msg, "utf-8"))
+                    acrc = crc32(
+                        bytes(self._region + atype + from_date[0:5] + msg, "utf-8")
+                    )
                     result.append(
                         {
                             "alert_id": acrc,
@@ -132,8 +142,8 @@ class MeteoAlarm:
 
 
 def cet2iso8601(cet):
-    buf = cet.replace(' CET', ':00+01:00').replace(' CEST', ':00+02:00')
-    return '-'.join((buf[6:10], buf[3:5], buf[0:2])) + 'T' + buf[11:] 
+    buf = cet.replace(" CET", ":00+01:00").replace(" CEST", ":00+02:00")
+    return "-".join((buf[6:10], buf[3:5], buf[0:2])) + "T" + buf[11:]
 
 
 def get_regions(country):
