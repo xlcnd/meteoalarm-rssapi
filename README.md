@@ -55,3 +55,6 @@ There are two pieces of information that could be important for your application
 
 In conclusion, for one `alert_id` there are several `message_id` 
 (that can be taken as the revisions of the `alert_id`).
+
+The timestamps for `from` and `until` are in format ISO8601 so that you can 
+(*easily*) convert them to your local date/time. 
