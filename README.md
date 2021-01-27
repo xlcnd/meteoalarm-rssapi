@@ -1,4 +1,5 @@
-
+![tests](https://github.com/xlcnd/meteoalarm-rssapi/workflows/tests/badge.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/xlcnd/meteoalarm-rssapi?label=version&sort=semver)
 
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
