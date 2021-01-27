@@ -1,4 +1,5 @@
 ![GitHub tests](https://github.com/xlcnd/meteoalarm-rssapi/workflows/tests/badge.svg)
+![GitHub issues by-label](https://img.shields.io/github/issues/xlcnd/meteoalarm-rssapi/bug?label=bugs)
 ![PyPI](https://img.shields.io/pypi/v/meteoalarm-rssapi)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)
 
