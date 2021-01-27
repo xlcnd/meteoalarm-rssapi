@@ -46,6 +46,10 @@ You need to know your iso 2-letter country code (e.g. DE) and the **exact name**
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
 
 
+The timestamps for `from` and `until` are in format ISO8601 so that you can 
+(*easily*) convert them to your local date/time. 
+
+
 There are two pieces of information that could be important for your applications:
 
 1. `alert_id` changes to a new value when there is a change in the `message` or in the 
@@ -55,6 +59,3 @@ There are two pieces of information that could be important for your application
 
 In conclusion, for one `alert_id` there are several `message_id` 
 (that can be taken as the revisions of the `alert_id`).
-
-The timestamps for `from` and `until` are in format ISO8601 so that you can 
-(*easily*) convert them to your local date/time. 
