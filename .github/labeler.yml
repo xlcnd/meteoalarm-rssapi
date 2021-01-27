@@ -1,0 +1,8 @@
+repo:
+  - ./*
+
+test:
+  - meteoalarm_rssapi/test/*
+
+core:
+  - meteoalarm_rssapi/*
