@@ -10,7 +10,7 @@ from urllib.error import HTTPError, URLError
 
 from ._exceptions import MeteoAlarmServiceError
 
-__version__ = '0.1.6'
+__version__ = "0.1.6"
 
 
 UA = "meteoalarm_rssapi/{version} (gzip)".format(version=__version__)
@@ -21,8 +21,8 @@ class WEBQuery(object):
     """Class to query web services."""
 
     def __init__(self, url, timeout=TIMEOUT):
-        if not url.lower().startswith('http'):
-            raise MeteoAlarmServiceError('Url (%s) not allowed!' % url)
+        if not url.lower().startswith("http"):
+            raise MeteoAlarmServiceError("Url (%s) not allowed!" % url)
         self._url = url
         self._timeout = timeout
         headers = {"Accept-Encoding": "gzip", "User-Agent": UA}
