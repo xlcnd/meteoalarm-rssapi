@@ -75,7 +75,7 @@ setup(
     author_email=PROJECT_EMAIL,
     packages=PACKAGES,
     license=PROJECT_LICENSE,
-    description='an "API" for meteoalarm.eu using the rss feeds.',
+    description='An "API" for meteoalarm.eu using the rss feeds.',
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     keywords='meteoalarm',
