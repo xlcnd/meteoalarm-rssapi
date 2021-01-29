@@ -81,11 +81,17 @@ class MeteoAlarm:
 
             target = alerts[0] if alerts else ""
             if not target:
+                if (
+                    self._country not in MANY_REGIONS_COUNTRIES
+                    and self._region
+                    not in (entry["title"] for entry in feed["entries"])
+                ):
+                    raise MeteoAlarmUnrecognizedRegionError()
                 return ()
 
             pub_date = [
-                entry["published"][5:] 
-                for entry in feed["entries"] 
+                entry["published"][5:]
+                for entry in feed["entries"]
                 if entry["title"] == self._region
             ][0]
 
@@ -156,8 +162,8 @@ def cet2iso8601(cet):
 
 
 def strdt2iso8601(strdt):
-    buf = datetime.strptime(strdt, '%d %b %Y %H:%M:%S %z')
-    return str(buf).replace(' ', 'T')
+    buf = datetime.strptime(strdt, "%d %b %Y %H:%M:%S %z")
+    return str(buf).replace(" ", "T")
 
 
 def get_regions(country):
