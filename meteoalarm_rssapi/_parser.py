@@ -1,5 +1,6 @@
 import re
 
+from datetime import datetime
 from zlib import crc32
 
 import feedparser
@@ -82,6 +83,12 @@ class MeteoAlarm:
             if not target:
                 return ()
 
+            pub_date = [
+                entry["published"][5:] 
+                for entry in feed["entries"] 
+                if entry["title"] == self._region
+            ][0]
+
             match = RE_TODAY.search(target)
             if not match:
                 return ()
@@ -112,7 +119,8 @@ class MeteoAlarm:
                             + from_date
                             + until_date
                             + alevel
-                            + msg,
+                            + msg
+                            + pub_date,
                             "utf-8",
                         )
                     )
@@ -130,6 +138,7 @@ class MeteoAlarm:
                             "until": cet2iso8601(until_date),
                             "message": msg,
                             "message_id": mcrc,
+                            "published": strdt2iso8601(pub_date),
                         },
                     )
 
@@ -144,6 +153,11 @@ class MeteoAlarm:
 def cet2iso8601(cet):
     buf = cet.replace(" CET", ":00+01:00").replace(" CEST", ":00+02:00")
     return "-".join((buf[6:10], buf[3:5], buf[0:2])) + "T" + buf[11:]
+
+
+def strdt2iso8601(strdt):
+    buf = datetime.strptime(strdt, '%d %b %Y %H:%M:%S %z')
+    return str(buf).replace(' ', 'T')
 
 
 def get_regions(country):
