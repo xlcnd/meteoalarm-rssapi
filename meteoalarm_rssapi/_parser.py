@@ -173,5 +173,5 @@ def get_regions(country):
         country=country.lower()
     )
     feed = feedparser.parse(query(url))
-    regions = tuple((entry["title"] for entry in feed["entries"]))
-    return regions[1:] if len(regions) > 1 else regions
+    regs = tuple((entry["title"] for entry in feed["entries"]))
+    return regs[1:] if len(regs) > 1 else regs
