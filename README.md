@@ -31,6 +31,7 @@ awareness_type: Snow/Ice
 awareness_level: Yellow
 country: DE
 region: Kreis Ahrweiler
+published: 2021-01-26T12:23:00+01:00
 from: 2021-01-26T18:00:00+01:00
 until: 2021-01-27T11:00:00+01:00
 message:
