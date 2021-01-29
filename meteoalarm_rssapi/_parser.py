@@ -169,4 +169,9 @@ def strdt2iso8601(strdt):
 def get_regions(country):
     if country in MANY_REGIONS_COUNTRIES:
         return tuple(regions[country].keys())
-    return ('Please check "meteoalarm.eu" for the regions of {}'.format(country),)
+    url = "https://www.meteoalarm.eu/documents/rss/{country}.rss".format(
+        country=country.lower()
+    )
+    feed = feedparser.parse(query(url))
+    regions = tuple((entry["title"] for entry in feed["entries"]))
+    return regions[1:] if len(regions) > 1 else regions
