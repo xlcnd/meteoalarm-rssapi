@@ -1,6 +1,6 @@
 ![GitHub tests](https://github.com/xlcnd/meteoalarm-rssapi/workflows/tests/badge.svg)
 ![GitHub issues by-label](https://img.shields.io/github/issues/xlcnd/meteoalarm-rssapi/bug?label=bugs)
-![PyPI](https://img.shields.io/pypi/v/meteoalarm-rssapi)
+[![PyPI](https://img.shields.io/pypi/v/meteoalarm-rssapi)][1]
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)
 
 
@@ -64,3 +64,6 @@ There are two pieces of information that could be important for your application
 
 In conclusion, for one `alert_id` there are several `message_id` 
 (that can be taken as the revisions of the `alert_id`).
+
+
+[1]: https://pypi.org/project/meteoalarm-rssapi/
