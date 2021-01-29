@@ -1,7 +1,7 @@
-![GitHub tests](https://github.com/xlcnd/meteoalarm-rssapi/workflows/tests/badge.svg)
-![GitHub issues by-label](https://img.shields.io/github/issues/xlcnd/meteoalarm-rssapi/bug?label=bugs)
+[![GitHub tests](https://github.com/xlcnd/meteoalarm-rssapi/workflows/tests/badge.svg)][2]
+[![GitHub issues by-label](https://img.shields.io/github/issues/xlcnd/meteoalarm-rssapi/bug?label=bugs)][3]
 [![PyPI](https://img.shields.io/pypi/v/meteoalarm-rssapi)][1]
-![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)][1]
 
 
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
@@ -67,3 +67,6 @@ In conclusion, for one `alert_id` there are several `message_id`
 
 
 [1]: https://pypi.org/project/meteoalarm-rssapi/
+[2]: https://github.com/xlcnd/meteoalarm-rssapi/actions
+[3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+is%3Abug
+
