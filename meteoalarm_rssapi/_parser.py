@@ -25,8 +25,6 @@ RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 
-MANY_REGIONS_COUNTRIES = ("DE", "ES", "FR", "IT", "NO", "PL", "PT", "SE")
-
 awareness_levels = tuple(awl.values())
 awareness_types = tuple(awt.values())
 countries = tuple(res_countries.keys())
@@ -39,18 +37,13 @@ class MeteoAlarm:
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
         self._region = region
-        if country in MANY_REGIONS_COUNTRIES:
-            try:
-                code = regions[country][region]
-            except KeyError:
-                raise MeteoAlarmUnrecognizedRegionError()
-            url = "https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss".format(
-                iso=country.lower(), country=country.upper(), code=code
-            )
-        else:
-            url = "https://www.meteoalarm.eu/documents/rss/{country}.rss".format(
-                country=country.lower()
-            )
+        try:
+            code = regions[country][region]
+        except KeyError:
+            raise MeteoAlarmUnrecognizedRegionError()
+        url = "https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss".format(
+            iso=country.lower(), country=country.upper(), code=code
+        )
         self._url = url
 
     @staticmethod
@@ -81,12 +74,6 @@ class MeteoAlarm:
 
             target = alerts[0] if alerts else ""
             if not target:
-                if (
-                    self._country not in MANY_REGIONS_COUNTRIES
-                    and self._region
-                    not in (entry["title"] for entry in feed["entries"])
-                ):
-                    raise MeteoAlarmUnrecognizedRegionError()
                 return ()
 
             pub_date = [
@@ -167,11 +154,7 @@ def strdt2iso8601(strdt):
 
 
 def get_regions(country):
-    if country in MANY_REGIONS_COUNTRIES:
+    try:
         return tuple(regions[country].keys())
-    url = "https://www.meteoalarm.eu/documents/rss/{country}.rss".format(
-        country=country.lower()
-    )
-    feed = feedparser.parse(query(url))
-    regs = tuple((entry["title"] for entry in feed["entries"]))
-    return regs[1:] if len(regs) > 1 else regs
+    except KeyError:
+        raise MeteoAlarmUnrecognizedCountryError()
