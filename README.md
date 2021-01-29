@@ -48,7 +48,14 @@ message:
 
 You need to know your iso 2-letter country code (e.g. DE) and the **exact name** of your region
 **as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that, 
-please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/).
+please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/),
+or run the following script:
+
+```python
+from meteoalarm_rssapi import get_regions
+
+print(get_regions('DE'))
+```
 
 
 The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can 
