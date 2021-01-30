@@ -1,4 +1,4 @@
-# Produced by 'meteoalarm-tools' @'2021-01-30UTC13:36'
+# Produced by 'meteoalarm-tools'@'2021-01-30UTC14:20'
 
 regions = {
     "AT": {
