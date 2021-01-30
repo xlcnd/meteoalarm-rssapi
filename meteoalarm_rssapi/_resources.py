@@ -1,4 +1,4 @@
-# Produced by 'meteoalarm-tools' @'2021-01-29UTC18:31'
+# Produced by 'meteoalarm-tools' @'2021-01-30UTC13:36'
 
 regions = {
     "AT": {
@@ -1984,15 +1984,15 @@ regions = {
 "East Midlands":"011",
 "East of England":"012",
 "Grampian":"015",
-"Highland & Islands":"002",
-"London & South East":"013",
-"Lothian & Borders":"004",
+"Highland &amp; Islands":"002",
+"London &amp; South East":"013",
+"Lothian &amp; Borders":"004",
 "North East":"007",
 "North West":"009",
 "Northern Ireland":"014",
 "South West":"001",
 "Strathclyde":"005",
-"Tayside, Central & Fife":"003",
+"Tayside, Central &amp; Fife":"003",
 "Wales":"016",
 "West Midlands":"010",
 "Yorkshire and the Humber":"008",
