@@ -46,7 +46,7 @@ message:
 ```
 
 
-You need to know your iso 2-letter country code (e.g. DE) and the **exact name** of your region
+You need to know your 2-letter iso country code (e.g. DE) and the **exact name** of your region
 **as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that, 
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/),
 or run the following script:
