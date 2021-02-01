@@ -15,4 +15,4 @@ v0.1.4, 2021-01-25 -- sanityze url.
 v0.1.5, 2021-01-26 -- date/time in ISO8601 format.
 v0.1.6, 2021-01-29 -- add published.
 v0.1.7, 2021-01-30 -- faster API for the majority of countries.
-v0.1.8, 2021-01-30 -- TENTATIVE
+v0.1.8, 2021-01-30 -- update resources.
