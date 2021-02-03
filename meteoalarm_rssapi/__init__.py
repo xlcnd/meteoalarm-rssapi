@@ -5,12 +5,12 @@ from ._exceptions import (
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
 )
-from ._parser import (
-    MeteoAlarm,
+from ._parser import MeteoAlarm
+from ._helpers import countries_iso as country_iso_map, get_regions
+from ._resources import (
     awareness_levels,
     awareness_types,
-    countries,
+    countries_list,
 )
-from ._helpers import countries_iso, get_regions
 
 __version__ = "0.1.9"
