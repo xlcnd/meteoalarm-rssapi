@@ -158,3 +158,9 @@ def get_regions(country):
         return tuple(regions[country].keys())
     except KeyError:
         raise MeteoAlarmUnrecognizedCountryError()
+
+
+def countries_iso():
+    return {
+        v[0].replace("%20", " ").split("-", 1)[1]: k for k, v in res_countries.items()
+    }

@@ -10,6 +10,7 @@ from ._parser import (
     awareness_levels,
     awareness_types,
     countries,
+    countries_iso,
     get_regions,
 )
 
