@@ -10,8 +10,7 @@ from ._parser import (
     awareness_levels,
     awareness_types,
     countries,
-    countries_iso,
-    get_regions,
 )
+from ._helpers import countries_iso, get_regions
 
 __version__ = "0.1.9"

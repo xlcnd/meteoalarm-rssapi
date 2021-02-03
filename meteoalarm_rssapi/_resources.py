@@ -2073,3 +2073,8 @@ countries = {
     "SK": ("SK-Slovakia", "slovenčina,english"),
     "UK": ("UK-United%20Kingdom", ""),
 }
+
+
+awareness_levels = tuple(awl.values())
+awareness_types = tuple(awt.values())
+countries_list = tuple(countries.keys())

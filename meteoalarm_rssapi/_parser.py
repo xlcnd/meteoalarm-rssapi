@@ -12,7 +12,19 @@ from ._exceptions import (
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
 )
-from ._resources import awl, awt, countries as res_countries, regions
+from ._helpers import (
+    cet2iso8601,
+    get_regions,
+    strdt2iso8601,
+)
+from ._resources import (
+    awareness_levels,
+    awareness_types,
+    awl,
+    awt,
+    countries_list as countries,
+    regions,
+)
 from ._webquery import query
 
 
@@ -24,10 +36,6 @@ RE_FROM = re.compile(r"From: </b><i>(.*?)</i><b>", re.I | re.M | re.S)
 RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
-
-awareness_levels = tuple(awl.values())
-awareness_types = tuple(awt.values())
-countries = tuple(res_countries.keys())
 
 
 class MeteoAlarm:
