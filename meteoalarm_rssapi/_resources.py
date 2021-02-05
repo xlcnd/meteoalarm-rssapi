@@ -2057,7 +2057,7 @@ countries = {
     "IT": ("IT-Italy", "italiano,english"),
     "LT": ("LT-Lithuania", "lietuviu"),
     "LU": ("LU-Luxembourg", "français,deutsch,english"),
-    "LV": ("LV-Latvia", "latviešu"),
+    "LV": ("LV-Latvia", "english,latviešu"),
     "MD": ("MD-Moldova", ""),
     "ME": ("ME-Montenegro", "english,Црногорски"),
     "MK": ("MK-Republic%20of%20North%20Macedonia", ""),
