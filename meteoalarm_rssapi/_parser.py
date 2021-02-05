@@ -92,7 +92,6 @@ class MeteoAlarm:
             ids = []
             rows = RE_TR.findall(target)
             rows = [r for r in rows if "Today<" not in r and "Tomorrow<" not in r]
-            # print(rows)
             for i, row in enumerate(rows):
 
                 if i % 2 == 0:
