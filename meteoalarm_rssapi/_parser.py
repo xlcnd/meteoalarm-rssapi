@@ -27,8 +27,7 @@ from ._resources import (
 )
 from ._webquery import query
 
-# TODO get all msg (just select today & tomorrow area!)
-# RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
+
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
 RE_AWL = re.compile(r'level:(.*?)"', re.I | re.M | re.S)
