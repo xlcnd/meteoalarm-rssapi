@@ -123,10 +123,10 @@ class MeteoAlarm:
                     )
                     if mcrc in ids:
                         continue
+                    ids.append(mcrc)
                     acrc = crc32(
                         bytes(self._region + atype + from_date[0:5] + msg, "utf-8")
                     )
-                    ids.append(mcrc)
                     result.append(
                         {
                             "alert_id": acrc,
