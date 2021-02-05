@@ -18,4 +18,4 @@ v0.1.7, 2021-01-30 -- faster API for the majority of countries.
 v0.1.8, 2021-02-01 -- update resources.
 v0.1.9, 2021-02-03 -- add 'countries_iso' map.
 v0.2.0, 2021-02-05 -- new strategy (all uniq alerts).
-v0.2.1, 2021-02-05 -- TENTATIVE
+v0.2.1, 2021-02-05 -- all uniq alerts (from older to newest).

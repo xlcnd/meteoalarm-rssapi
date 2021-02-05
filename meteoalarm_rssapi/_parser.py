@@ -143,7 +143,7 @@ class MeteoAlarm:
                             },
                         )
 
-            return tuple(sorted(result, key=lambda d: d["from"], reverse=True))
+            return tuple(sorted(result, key=lambda d: d["from"]))
 
         except MeteoAlarmServiceError:
             raise MeteoAlarmServiceError()
