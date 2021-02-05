@@ -121,25 +121,26 @@ class MeteoAlarm:
                             "utf-8",
                         )
                     )
+                    if mcrc in ids:
+                        continue
                     acrc = crc32(
                         bytes(self._region + atype + from_date[0:5] + msg, "utf-8")
                     )
-                    if mcrc not in ids:
-                        ids.append(mcrc)
-                        result.append(
-                            {
-                                "alert_id": acrc,
-                                "country": self._country.upper(),
-                                "region": self._region,
-                                "awareness_type": awt[atype],
-                                "awareness_level": awl[alevel][0],
-                                "from": cet2iso8601(from_date),
-                                "until": cet2iso8601(until_date),
-                                "message": msg,
-                                "message_id": mcrc,
-                                "published": strdt2iso8601(pub_date),
-                            },
-                        )
+                    ids.append(mcrc)
+                    result.append(
+                        {
+                            "alert_id": acrc,
+                            "country": self._country.upper(),
+                            "region": self._region,
+                            "awareness_type": awt[atype],
+                            "awareness_level": awl[alevel][0],
+                            "from": cet2iso8601(from_date),
+                            "until": cet2iso8601(until_date),
+                            "message": msg,
+                            "message_id": mcrc,
+                            "published": strdt2iso8601(pub_date),
+                        },
+                    )
 
             return tuple(sorted(result, key=lambda d: d["from"]))
 
