@@ -27,8 +27,8 @@ from ._resources import (
 )
 from ._webquery import query
 
-
-RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
+# TODO get all msg (just select today & tomorrow area!)
+# RE_TODAY = re.compile(r"(Today.*?)>Tomorrow<", re.I | re.M | re.S)
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
 RE_AWL = re.compile(r'level:(.*?)"', re.I | re.M | re.S)
@@ -71,7 +71,6 @@ class MeteoAlarm:
 
     def alerts(self):
         try:
-
             feed = feedparser.parse(query(self._url))
 
             alerts = [
@@ -90,28 +89,27 @@ class MeteoAlarm:
                 if entry["title"] == self._region
             ][0]
 
-            match = RE_TODAY.search(target)
-            if not match:
-                return ()
-
-            buf = match.group()
-            if not buf or "No special awareness required" in buf:
-                return ()
-
             result = []
-            rows = RE_TR.findall(buf)
+            ids = []
+            rows = RE_TR.findall(target)
+            rows = [r for r in rows if "Today<" not in r and "Tomorrow<" not in r]
+            # print(rows)
             for i, row in enumerate(rows):
 
                 if i % 2 == 0:
                     # get: awt, awl, from and until from rows 0, 2, 4, ...
-                    atype = RE_AWT.search(row).group(1)
-                    alevel = RE_AWL.search(row).group(1)
-                    from_date = RE_FROM.search(row).group(1)
-                    until_date = RE_UNTIL.search(row).group(1)
+                    try:
+                        atype = RE_AWT.search(row).group(1)
+                        alevel = RE_AWL.search(row).group(1)
+                        from_date = RE_FROM.search(row).group(1)
+                        until_date = RE_UNTIL.search(row).group(1)
+                    except AttributeError:
+                        continue
                 else:
                     # get: msg from rows 1, 3, 5, ...
+                    if "No special awareness required" in row:
+                        continue
                     msg = RE_MSG.search(row).group(1).strip()
-                    msg = msg.replace(".", ". ").strip()
                     msg = re.sub(r"\s+", " ", msg)
                     mcrc = crc32(
                         bytes(
@@ -128,20 +126,22 @@ class MeteoAlarm:
                     acrc = crc32(
                         bytes(self._region + atype + from_date[0:5] + msg, "utf-8")
                     )
-                    result.append(
-                        {
-                            "alert_id": acrc,
-                            "country": self._country.upper(),
-                            "region": self._region,
-                            "awareness_type": awt[atype],
-                            "awareness_level": awl[alevel][0],
-                            "from": cet2iso8601(from_date),
-                            "until": cet2iso8601(until_date),
-                            "message": msg,
-                            "message_id": mcrc,
-                            "published": strdt2iso8601(pub_date),
-                        },
-                    )
+                    if mcrc not in ids:
+                        ids.append(mcrc)
+                        result.append(
+                            {
+                                "alert_id": acrc,
+                                "country": self._country.upper(),
+                                "region": self._region,
+                                "awareness_type": awt[atype],
+                                "awareness_level": awl[alevel][0],
+                                "from": cet2iso8601(from_date),
+                                "until": cet2iso8601(until_date),
+                                "message": msg,
+                                "message_id": mcrc,
+                                "published": strdt2iso8601(pub_date),
+                            },
+                        )
 
             return tuple(result)
 
