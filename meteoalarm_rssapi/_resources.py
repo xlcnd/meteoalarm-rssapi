@@ -1,4 +1,8 @@
-# Produced by 'meteoalarm-tools'@'2021-01-30UTC14:20'
+#                WARNING
+# THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
+# PULL THE RELEVANT INFORMATION FROM meteoalarm.eu
+# DON'T EDIT IT MANUALLY!
+# Produced by 'meteoalarm-tools'@'2021-02-05UTC12:25'
 
 regions = {
     "AT": {
