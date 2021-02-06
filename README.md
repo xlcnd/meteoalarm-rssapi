@@ -4,6 +4,9 @@
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)][1]
 
 
+> **DISCLAIMER**: This project is an open source project and doesn't have any connection with meteoalarm.eu.
+
+
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
 To install enter in a command line:
@@ -47,7 +50,7 @@ message:
 
 
 You need to know your 2-letter iso country code (e.g. DE) and the **exact name** of your region
-**as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that, 
+**as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that,
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/),
 or run the following script:
 
@@ -58,18 +61,18 @@ print(get_regions('DE'))
 ```
 
 
-The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can 
-(*easily*) convert them to your local date/time. 
+The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can
+(*easily*) convert them to your local date/time.
 
 
 There are two pieces of information that could be important for your applications:
 
-1. `alert_id` changes to a new value when there is a change in the `message` or in the 
+1. `alert_id` changes to a new value when there is a change in the `message` or in the
    day/month of `from`. So, doesn't change if there are only a revision of the H:M, a revision
    for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `published`, `from`, `until` or `awareness_level`.
 
-In conclusion, for one `alert_id` there are several `message_id` 
+In conclusion, for one `alert_id` there are several `message_id`
 (that can be taken as the revisions of the `alert_id`).
 
 
