@@ -4,7 +4,7 @@
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)][1]
 
 
-> **DISCLAIMER**: This project is an open source project and doesn't have any connection with meteoalarm.eu.
+> **DISCLAIMER**: This is an open source project and doesn't have any connection with [meteoalarm.eu](https://www.meteoalarm.eu/).
 
 
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
