@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
-from ._exceptions import MeteoAlarmServiceError
+from .exceptions import MeteoAlarmServiceError
 
 __version__ = "0.2.2"
 

@@ -5,7 +5,7 @@ from zlib import crc32
 
 import feedparser
 
-from ._exceptions import (
+from .exceptions import (
     MeteoAlarmException,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
