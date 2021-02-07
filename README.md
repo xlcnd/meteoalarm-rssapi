@@ -3,11 +3,11 @@
 [![PyPI](https://img.shields.io/pypi/v/meteoalarm-rssapi)][1]
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/meteoalarm-rssapi)][1]
 
+An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
+
 
 > **DISCLAIMER**: This is an open source project and doesn't have any connection with [meteoalarm.eu](https://www.meteoalarm.eu/).
 
-
-An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
 To install enter in a command line:
 
