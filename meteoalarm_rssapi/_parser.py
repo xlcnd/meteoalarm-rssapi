@@ -28,6 +28,20 @@ from ._resources import (
 from ._webquery import query
 
 
+KEYS = (
+    "alert_id",
+    "country",
+    "region",
+    "awareness_type",
+    "awareness_level",
+    "from",
+    "until",
+    "message",
+    "message_id",
+    "published",
+)
+
+
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
 RE_AWL = re.compile(r'level:(.*?)"', re.I | re.M | re.S)

@@ -5,7 +5,7 @@ from .exceptions import (
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
 )
-from ._parser import MeteoAlarm
+from ._parser import KEYS, MeteoAlarm
 from ._helpers import countries_iso as country_iso_map, get_regions
 from ._resources import (
     awareness_levels,
