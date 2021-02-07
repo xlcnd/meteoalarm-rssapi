@@ -22,7 +22,7 @@ from ._resources import (
     awareness_types,
     awl,
     awt,
-    countries_list as countries,
+    countries_list as _countries,
     regions,
 )
 from ._webquery import query
@@ -49,12 +49,14 @@ RE_FROM = re.compile(r"From: </b><i>(.*?)</i><b>", re.I | re.M | re.S)
 RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
+RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
+# RE_TAG = re.compile(r"<[^>]+>", re.I | re.M | re.S)
 
 
 class MeteoAlarm:
     def __init__(self, country, region):
         country = country.upper()
-        if country not in countries:
+        if country not in _countries:
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
         self._region = region
@@ -69,7 +71,7 @@ class MeteoAlarm:
 
     @staticmethod
     def countries():
-        return countries
+        return _countries
 
     @staticmethod
     def awareness_levels():
@@ -122,7 +124,9 @@ class MeteoAlarm:
                     if "No special awareness required" in row:
                         continue
                     msg = RE_MSG.search(row).group(1).strip()
-                    msg = re.sub(r"\s+", " ", msg)
+                    # msg = re.sub(RE_TAG, " ", msg)
+                    msg = re.sub(RE_EOL, " ", msg)
+                    msg = re.sub(RE_WS, " ", msg)
                     mcrc = crc32(
                         bytes(
                             self._region
