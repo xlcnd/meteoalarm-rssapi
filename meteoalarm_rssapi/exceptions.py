@@ -18,3 +18,7 @@ class MeteoAlarmUnrecognizedRegionError(MeteoAlarmException):
 
 class MeteoAlarmParseError(MeteoAlarmException):
     pass
+
+
+class MeteoAlarmMissingInfo(MeteoAlarmException):
+    pass

@@ -4,6 +4,7 @@ from .exceptions import (
     MeteoAlarmUnrecognizedRegionError,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
+    MeteoAlarmMissingInfo,
 )
 from ._parser import KEYS, MeteoAlarm
 from ._helpers import (

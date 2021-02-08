@@ -11,6 +11,7 @@ from .exceptions import (
     MeteoAlarmUnrecognizedRegionError,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
+    MeteoAlarmMissingInfo,
 )
 from ._helpers import (
     cet2iso8601,
@@ -105,6 +106,8 @@ class MeteoAlarm:
                 for entry in feed["entries"]
                 if entry["title"] == self._region
             ][0]
+            # TODO if (now - pub_date) > 3 days => WHITE (missing info)
+            # raise MeteoAlarmMissingInfo
 
             result = []
             ids = []
