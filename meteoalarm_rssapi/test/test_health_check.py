@@ -10,4 +10,3 @@ def test_service_health_check():
         assert is_healty
     except ConnectionResetError:
         assert False
-
