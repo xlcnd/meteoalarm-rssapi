@@ -1,6 +1,8 @@
 from datetime import datetime
 
+from .exceptions import MeteoAlarmServiceError
 from ._resources import countries as res_countries, regions
+from ._webquery import query as wquery
 
 
 def cet2iso8601(cet):
@@ -24,3 +26,11 @@ def countries_iso():
     return {
         v[0].replace("%20", " ").split("-", 1)[1]: k for k, v in res_countries.items()
     }
+
+
+def service_health_check():
+    try:
+        wquery("http://meteoalarm.eu/robots.txt", timeout=2)
+    except MeteoAlarmServiceError:
+        return False
+    return True
