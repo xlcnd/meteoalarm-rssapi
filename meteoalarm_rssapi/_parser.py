@@ -18,6 +18,7 @@ from ._helpers import (
     get_regions,
     service_health_check,
     strdt2iso8601,
+    days_since,
 )
 from ._resources import (
     awareness_levels,
@@ -106,8 +107,9 @@ class MeteoAlarm:
                 for entry in feed["entries"]
                 if entry["title"] == self._region
             ][0]
-            # TODO if (now - pub_date) > 3 days => WHITE (missing info)
-            # raise MeteoAlarmMissingInfo
+            # WHITE (missing info)
+            if days_since(pub_date) > 3:
+                raise MeteoAlarmMissingInfo
 
             result = []
             ids = []
@@ -166,7 +168,7 @@ class MeteoAlarm:
 
             return tuple(sorted(result, key=lambda d: d.get("from")))
 
-        except MeteoAlarmServiceError:
+        except (MeteoAlarmMissingInfo, MeteoAlarmServiceError):
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()

@@ -15,6 +15,13 @@ def strdt2iso8601(strdt):
     return str(buf).replace(" ", "T")
 
 
+def days_since(strdt):
+    a = datetime.strptime(strdt[0:11], "%d %b %Y")
+    b = datetime.today()
+    delta = b - a
+    return delta.days
+
+
 def get_regions(country):
     try:
         return tuple(regions[country].keys())
