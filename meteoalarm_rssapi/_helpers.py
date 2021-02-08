@@ -28,9 +28,9 @@ def countries_iso():
     }
 
 
-def service_health_check():
+def service_health_check(url="http://meteoalarm.eu/robots.txt", timeout=2):
     try:
-        wquery("http://meteoalarm.eu/robots.txt", timeout=2)
+        wquery(url, timeout)
     except MeteoAlarmServiceError:
         return False
     return True

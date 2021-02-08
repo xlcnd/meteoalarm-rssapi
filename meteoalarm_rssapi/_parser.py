@@ -15,6 +15,7 @@ from .exceptions import (
 from ._helpers import (
     cet2iso8601,
     get_regions,
+    service_health_check,
     strdt2iso8601,
 )
 from ._resources import (
@@ -79,6 +80,9 @@ class MeteoAlarm:
     @staticmethod
     def awareness_types():
         return awareness_types
+
+    def health_check(self, timeout=2):
+        return service_health_check(self._url, timeout)
 
     def country_regions(self):
         return get_regions(self._country)
