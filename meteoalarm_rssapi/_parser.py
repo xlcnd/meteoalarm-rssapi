@@ -163,7 +163,7 @@ class MeteoAlarm:
 
             return tuple(sorted(result, key=lambda d: d.get("from")))
 
-        except (MeteoAlarmMissingInformation, MeteoAlarmServiceError):
+        except MeteoAlarmServiceError:
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
