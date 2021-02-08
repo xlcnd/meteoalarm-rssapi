@@ -50,7 +50,6 @@ RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
-# RE_TAG = re.compile(r"<[^>]+>", re.I | re.M | re.S)
 
 
 class MeteoAlarm:
@@ -124,7 +123,6 @@ class MeteoAlarm:
                     if "No special awareness required" in row:
                         continue
                     msg = RE_MSG.search(row).group(1).strip()
-                    # msg = re.sub(RE_TAG, " ", msg)
                     msg = re.sub(RE_EOL, " ", msg)
                     msg = re.sub(RE_WS, " ", msg)
                     mcrc = crc32(
