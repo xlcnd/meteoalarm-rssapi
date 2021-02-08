@@ -24,4 +24,3 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
-      setup-python-dependencies: false
