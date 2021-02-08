@@ -96,7 +96,6 @@ class MeteoAlarm:
                 for entry in feed["entries"]
                 if entry["title"] == self._region
             ]
-
             target = alerts[0] if alerts else ""
             if not target:
                 return ()
@@ -164,7 +163,7 @@ class MeteoAlarm:
 
             return tuple(sorted(result, key=lambda d: d.get("from")))
 
-        except MeteoAlarmServiceError:
+        except (MeteoAlarmMissingInformation, MeteoAlarmServiceError):
             raise MeteoAlarmServiceError()
         except Exception:
             raise MeteoAlarmParseError()
