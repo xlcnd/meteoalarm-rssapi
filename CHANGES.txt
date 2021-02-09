@@ -20,4 +20,4 @@ v0.1.9, 2021-02-03 -- add 'countries_iso' map.
 v0.2.0, 2021-02-05 -- new strategy (all uniq alerts).
 v0.2.1, 2021-02-05 -- all uniq alerts (from older to newest).
 v0.2.2, 2021-02-08 -- optimize flow and cleaner messages.
-v0.2.3, 2021-02-08 -- discriminate between white and green alerts.
+v0.2.3, 2021-02-09 -- discriminate between white and green alerts.
