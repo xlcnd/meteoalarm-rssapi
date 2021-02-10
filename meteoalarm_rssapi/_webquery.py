@@ -13,7 +13,7 @@ from .exceptions import MeteoAlarmServiceError
 __version__ = "0.2.5"
 
 
-UA = "meteoalarm_rssapi/{version} (gzip)".format(version=__version__)
+UA = "meteoalarm-rssapi/{version} (gzip)".format(version=__version__)
 TIMEOUT = 20
 
 
