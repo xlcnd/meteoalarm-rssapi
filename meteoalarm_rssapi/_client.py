@@ -1,4 +1,4 @@
-from ._parser import KEYS, parser
+from ._parser import parser
 
 from .exceptions import (
     MeteoAlarmUnrecognizedCountryError,
