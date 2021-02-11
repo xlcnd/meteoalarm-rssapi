@@ -115,6 +115,7 @@ data/
 *settings.json*
 .changelog*
 *(copy)*
+.isort*
 
 # scripts
 get_*

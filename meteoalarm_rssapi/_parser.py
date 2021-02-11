@@ -1,27 +1,18 @@
 import re
-
 from datetime import datetime
 from zlib import crc32
 
 import feedparser
 
+from ._helpers import cet2iso8601, days_since, strdt2iso8601
+from ._resources import awl, awt
+from ._webquery import query
 from .exceptions import (
     MeteoAlarmException,
+    MeteoAlarmMissingInfo,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
-    MeteoAlarmMissingInfo,
 )
-from ._helpers import (
-    cet2iso8601,
-    strdt2iso8601,
-    days_since,
-)
-from ._resources import (
-    awl,
-    awt,
-)
-from ._webquery import query
-
 
 KEYS = (
     "alert_id",

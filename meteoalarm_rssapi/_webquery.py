@@ -1,12 +1,11 @@
 """Query web services."""
 
 import gzip
-
 from io import BytesIO
 from socket import timeout as sockettimeout
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError, URLError
 
 from .exceptions import MeteoAlarmServiceError
 

@@ -1,8 +1,9 @@
 from datetime import datetime
 
-from .exceptions import MeteoAlarmServiceError
-from ._resources import countries as res_countries, regions
+from ._resources import countries as res_countries
+from ._resources import regions
 from ._webquery import query as wquery
+from .exceptions import MeteoAlarmServiceError
 
 
 def cet2iso8601(cet):
