@@ -2,7 +2,7 @@
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
 # PULL THE RELEVANT INFORMATION FROM meteoalarm.eu
 # DON'T EDIT IT MANUALLY!
-# Produced by 'meteoalarm-tools'@'2021-02-12UTC23:23'
+# Produced by 'meteoalarm-tools'@'2021-02-12UTC23:29'
 
 regions={
 "AT":{
