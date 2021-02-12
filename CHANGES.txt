@@ -22,4 +22,4 @@ v0.2.1, 2021-02-05 -- all uniq alerts (from older to newest).
 v0.2.2, 2021-02-08 -- optimize flow and cleaner messages.
 v0.2.3, 2021-02-09 -- discriminate between white and green alerts.
 v0.2.4, 2021-02-10 -- new 'alert_id' algorithm.
-v0.2.5, 2021-02-10 -- TENTATIVE
+v0.2.5, 2021-02-12 -- assure proper order on alerts.
