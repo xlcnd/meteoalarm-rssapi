@@ -2,9 +2,9 @@
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
 # PULL THE RELEVANT INFORMATION FROM meteoalarm.eu
 # DON'T EDIT IT MANUALLY!
-# Produced by 'meteoalarm-tools'@'2021-02-12UTC22:49'
+# Produced by 'meteoalarm-tools'@'2021-02-12UTC23:23'
 
-regions = {
+regions={
 "AT":{
 "Burgenland":"008",
 "Kärnten":"006",
@@ -763,8 +763,8 @@ regions = {
 "Costa - Costa granadina":"856",
 "Costa - El Hierro":"879",
 "Costa - Este de La Palma":"881",
-"Costa - Este,sur y oeste de Gran Canaria":"886",
-"Costa - Este,sur y oeste de Tenerife":"885",
+"Costa - Este, sur y oeste de Gran Canaria":"886",
+"Costa - Este, sur y oeste de Tenerife":"885",
 "Costa - Estrecho":"853",
 "Costa - Fuerteventura":"888",
 "Costa - Gipuzkoa litoral":"840",
@@ -814,8 +814,8 @@ regions = {
 "Depresión central de Tarragona":"189",
 "El Hierro":"129",
 "Este de La Palma":"126",
-"Este,sur y oeste de Gran Canaria":"122",
-"Este,sur y oeste de Tenerife":"132",
+"Este, sur y oeste de Gran Canaria":"122",
+"Este, sur y oeste de Tenerife":"132",
 "Estrecho":"077",
 "Fuerteventura":"124",
 "Gipuzkoa interior":"234",
@@ -935,14 +935,14 @@ regions = {
 "Sur de Mallorca":"117",
 "Sur de Ourense":"212",
 "Sur de Salamanca":"152",
-"Sur,Vegas y Oeste":"220",
+"Sur, Vegas y Oeste":"220",
 "Suroccidental asturiana":"110",
 "Suroeste de A Coruña":"205",
 "Tajo y Alagón":"199",
 "Valdeorras":"214",
 "Valle de Arán":"186",
 "Valle del Almanzora y Los Vélez":"070",
-"Valle del Guadalentín,Lorca y Águilas":"224",
+"Valle del Guadalentín, Lorca y Águilas":"224",
 "Valle del Guadalquivir de Jaén":"090",
 "Valle del Guadiana":"166",
 "Valle del Tajo":"175",
@@ -1996,7 +1996,7 @@ regions = {
 "Northern Ireland":"014",
 "South West":"001",
 "Strathclyde":"005",
-"Tayside,Central &amp; Fife":"003",
+"Tayside, Central &amp; Fife":"003",
 "Wales":"016",
 "West Midlands":"010",
 "Yorkshire and the Humber":"008",
@@ -2004,7 +2004,7 @@ regions = {
 }
 
 
-awt = {
+awt={
 "1":"Wind",
 "2":"Snow/Ice",
 "3":"Thunderstorms",
@@ -2020,16 +2020,16 @@ awt = {
 }
 
 
-awl = {
-"0":("White","Missing,insufficient,outdated or suspicious data."),
+awl={
+"0":("White","Missing, insufficient, outdated or suspicious data."),
 "1":("Green","No particular awareness of the weather is required."),
-"2":("Yellow","The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual,but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk."),
+"2":("Yellow","The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk."),
 "3":("Orange","The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities."),
-"4":("Red","The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely,in many cases with threat to life and limb,over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances,be prepared for extraordinary measures."),
+"4":("Red","The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures."),
 }
 
 
-countries = {
+countries={
 "AT":("AT-Austria","de,en","deutsch,english"),
 "BA":("BA-Bosnia-Herzegovina","bs,en","/"),
 "BE":("BE-Belgium","nl,fr","nederlands,français"),
@@ -2068,8 +2068,8 @@ countries = {
 "SK":("SK-Slovakia","sk,en","slovenčina,english"),
 "UK":("UK-United%20Kingdom","en",""),
 }
-awl_to_num = {'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
-awareness_levels = (('White','Missing,insufficient,outdated or suspicious data.'),('Green','No particular awareness of the weather is required.'),('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual,but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'),('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'),('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely,in many cases with threat to life and limb,over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances,be prepared for extraordinary measures.'))
-awareness_types = ('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
-countries_list = ('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
-languages = ('bs','cs','cu','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
+awl_to_num={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
+awareness_levels=(('White','Missing, insufficient, outdated or suspicious data.'), ('Green','No particular awareness of the weather is required.'), ('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'), ('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'), ('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.'))
+awareness_types=('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
+countries_list=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
+languages=('bs','cs','cu','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
