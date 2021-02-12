@@ -9,7 +9,7 @@ from urllib.request import Request, urlopen
 
 from .exceptions import MeteoAlarmServiceError
 
-__version__ = "0.2.5"
+__version__ = "0.2.6"
 
 
 UA = "meteoalarm-rssapi/{version} (gzip)".format(version=__version__)
