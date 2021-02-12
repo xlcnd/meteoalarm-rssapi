@@ -4,7 +4,7 @@ from zlib import crc32
 
 import feedparser
 
-from ._helpers import cet2iso8601, days_since, strdt2iso8601
+from ._helpers import cet2iso8601, _days_since, strdt2iso8601
 from ._resources import awl, awl_to_num, awt
 from ._webquery import query
 from .exceptions import (
@@ -60,7 +60,7 @@ def parser(url, country, region):
             if entry["title"] == region
         ][0]
         # WHITE (missing info)
-        if days_since(pub_date) > DAYS_PAST_TO_WHITE:
+        if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
             raise MeteoAlarmMissingInfo
 
         result = []

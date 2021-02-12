@@ -16,7 +16,12 @@ def strdt2iso8601(strdt):
     return str(buf).replace(" ", "T")
 
 
-def days_since(strdt):
+def utcnow2iso8601():
+    buf = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
+    return buf + "+00:00"
+
+
+def _days_since(strdt):
     a = datetime.strptime(strdt[0:11], "%d %b %Y")
     b = datetime.today()
     delta = b - a
