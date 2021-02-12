@@ -2079,6 +2079,7 @@ countries = {
 }
 
 
+awl_to_num = {v[0]: int(k) for k, v in awl.items()}
 awareness_levels = tuple(awl.values())
 awareness_types = tuple(awt.values())
 countries_list = tuple(countries.keys())

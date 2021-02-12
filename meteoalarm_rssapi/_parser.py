@@ -5,7 +5,7 @@ from zlib import crc32
 import feedparser
 
 from ._helpers import cet2iso8601, days_since, strdt2iso8601
-from ._resources import awl, awt
+from ._resources import awl, awl_to_num, awt
 from ._webquery import query
 from .exceptions import (
     MeteoAlarmException,
@@ -116,7 +116,12 @@ def parser(url, country, region):
                     },
                 )
 
-        return tuple(sorted(result, key=lambda d: d.get("from")))
+        return tuple(
+            sorted(
+                result,
+                key=lambda d: (d.get("from"), -awl_to_num[d.get("awareness_level")],),
+            )
+        )
 
     except (MeteoAlarmMissingInfo, MeteoAlarmServiceError):
         raise MeteoAlarmServiceError()
