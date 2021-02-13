@@ -43,5 +43,8 @@ class MeteoAlarm:
     def country_regions(self):
         return get_regions(self._country)
 
+    def country_languages(self):
+        return get_languages(self._country)
+
     def alerts(self):
         return parser(self._url, self._country, self._region)
