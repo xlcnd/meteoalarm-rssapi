@@ -16,9 +16,8 @@ def strdt2iso8601(strdt):
     return str(buf).replace(" ", "T")
 
 
-def utcnow2iso8601():
-    buf = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
-    return buf + "+00:00"
+def utcnow2iso8601(): 
+    return datetime.utcnow().astimezone().replace(microsecond=0).isoformat()
 
 
 def _days_since(strdt):
