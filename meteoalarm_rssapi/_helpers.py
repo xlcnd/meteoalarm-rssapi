@@ -16,7 +16,7 @@ def strdt2iso8601(strdt):
     return str(buf).replace(" ", "T")
 
 
-def utcnow2iso8601(): 
+def utcnow2iso8601():
     return datetime.utcnow().astimezone().replace(microsecond=0).isoformat()
 
 
@@ -30,6 +30,13 @@ def _days_since(strdt):
 def get_regions(country):
     try:
         return tuple(regions[country].keys())
+    except KeyError:
+        raise MeteoAlarmUnrecognizedCountryError()
+
+
+def get_languages(country):
+    try:
+        return tuple(res_countries[country][1].split(","))
     except KeyError:
         raise MeteoAlarmUnrecognizedCountryError()
 
