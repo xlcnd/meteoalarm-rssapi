@@ -53,7 +53,7 @@ from meteoalarm_rssapi import get_regions
 
 print(get_regions('DE'))
 ```
-You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language). The indication of **language is optional**, and if no language is specified the messsage will come unparsed and in all available languages. 
+You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language ('de')). The indication of **language is optional**, and if no language is specified the message will come unparsed and in all available languages. 
 
 The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can
 (*easily*) convert them to your local date/time.
