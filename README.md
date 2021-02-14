@@ -43,7 +43,7 @@ and you will get (after some `pprint`):
 ```
 
 
-You need to know your 2-letter iso country code (e.g. DE) and the **exact name** of your region
+You need to know your [ISO 3166-1 Alpha-2][5] (e.g. DE) and the **exact name** of your region
 **as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that,
 please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/),
 or run the following script:
@@ -74,4 +74,5 @@ In conclusion, for one `alert_id` there are several `message_id`
 [2]: https://github.com/xlcnd/meteoalarm-rssapi/actions
 [3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+is%3Abug
 [4]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+[5]: https://en.wikipedia.org/wiki/ISO_3166-1
 
