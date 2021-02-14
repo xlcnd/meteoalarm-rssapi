@@ -25,6 +25,7 @@ KEYS = (
     "message",
     "message_id",
     "published",
+    "languages",
 )
 
 GREEN_MESSAGE = "No special awareness required"
@@ -65,8 +66,8 @@ def lang_parser(msg, lang, country):
 
 
 def parser(url, country, region, language):
-
     try:
+
         feed = feedparser.parse(query(url))
 
         alerts = [
