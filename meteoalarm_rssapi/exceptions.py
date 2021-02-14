@@ -26,5 +26,3 @@ class MeteoAlarmParseError(MeteoAlarmException):
 
 class MeteoAlarmMissingInfo(MeteoAlarmException):
     pass
-
-
