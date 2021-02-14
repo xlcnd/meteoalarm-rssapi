@@ -1,4 +1,4 @@
-from ._helpers import get_regions, service_health_check
+from ._helpers import get_languages, get_regions, service_health_check
 from ._parser import parser
 from ._resources import awareness_levels, awareness_types
 from ._resources import countries_list as _countries
@@ -6,11 +6,12 @@ from ._resources import regions
 from .exceptions import (
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
+    MeteoAlarmUnavailableLanguageError,
 )
 
 
 class MeteoAlarm:
-    def __init__(self, country, region):
+    def __init__(self, country, region, language=None):
         country = country.upper()
         if country not in _countries:
             raise MeteoAlarmUnrecognizedCountryError()
@@ -23,6 +24,9 @@ class MeteoAlarm:
         url = "https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss".format(
             iso=country.lower(), country=country.upper(), code=code
         )
+        if language and language not in get_languages(country):
+            raise MeteoAlarmUnavailableLanguageError()
+        self._lang = language
         self._url = url
 
     @staticmethod
@@ -47,4 +51,4 @@ class MeteoAlarm:
         return get_languages(self._country)
 
     def alerts(self):
-        return parser(self._url, self._country, self._region)
+        return parser(self._url, self._country, self._region, self._lang)

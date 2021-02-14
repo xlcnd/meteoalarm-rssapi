@@ -10,6 +10,7 @@ from .exceptions import (
     MeteoAlarmServiceError,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
+    MeteoAlarmUnavailableLanguageError,
 )
 
 __version__ = "0.2.6"

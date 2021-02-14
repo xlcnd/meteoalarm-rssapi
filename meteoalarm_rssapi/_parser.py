@@ -5,7 +5,7 @@ from zlib import crc32
 import feedparser
 
 from ._helpers import cet2iso8601, _days_since, strdt2iso8601
-from ._resources import awl, awl_to_num, awt
+from ._resources import awl, awl_to_num, awt, countries
 from ._webquery import query
 from .exceptions import (
     MeteoAlarmException,
@@ -40,7 +40,31 @@ RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
 
 
-def parser(url, country, region):
+def lang_parser(msg, lang, country):
+    try:
+        langs = countries.get(country)[1].split(",")
+        quirk = countries.get(country)[2].split(",")
+        for i, v in enumerate(langs):
+            if v == lang:
+                idx = i
+                break
+        # SPECIAL CASE 1
+        if len(quirk) == 1:
+            return msg.split(quirk[-1])[idx].strip()
+        # SPECIAL CASE 2
+        if idx == len(langs) - 1:
+            m = msg.split(quirk[-1])[1]
+            return m.replace(quirk[-1], "").strip(": ")
+        # NORMAL CASE
+        RE_LANG = re.compile(
+            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]), re.I | re.M | re.S
+        )
+        return RE_LANG.search(msg).group(1).strip(": ")
+    except Exception:
+        pass
+
+
+def parser(url, country, region, language):
 
     try:
         feed = feedparser.parse(query(url))
@@ -85,6 +109,8 @@ def parser(url, country, region):
                 msg = RE_MSG.search(row).group(1).strip()
                 msg = re.sub(RE_EOL, " ", msg)
                 msg = re.sub(RE_WS, " ", msg)
+                if language:
+                    msg = lang_parser(msg, language, country)
                 mcrc = crc32(
                     bytes(
                         region
@@ -113,6 +139,9 @@ def parser(url, country, region):
                         "message": msg,
                         "message_id": mcrc,
                         "published": strdt2iso8601(pub_date),
+                        "languages": [language]
+                        if language
+                        else countries.get(country)[1].split(","),
                     },
                 )
 
