@@ -19,7 +19,7 @@ Now, lets see a simple example:
 
 ```python
 from meteoalarm_rssapi import MeteoAlarm
-meteo = MeteoAlarm('DE', 'Kreis Ahrweiler')
+meteo = MeteoAlarm('DE', 'Kreis Ahrweiler', 'de')
 
 print(meteo.alerts())
 ```
@@ -28,24 +28,18 @@ print(meteo.alerts())
 and you will get (after some `pprint`):
 
 ```
-alert_id: 3820923534
-message_id: 1817809724
-awareness_type: Snow/Ice
-awareness_level: Yellow
-country: DE
-region: Kreis Ahrweiler
-published: 2021-01-26T12:23:00+01:00
-from: 2021-01-26T18:00:00+01:00
-until: 2021-01-27T11:00:00+01:00
-message:
-  deutsch: Es tritt im Warnzeitraum oberhalb 400 m leichter
-  Schneefall mit Mengen zwischen 1 cm und 3 cm auf. In Staulagen
-  werden Mengen bis 5 cm erreicht. Die Schneefallgrenze steigt auf
-  1500 Meter. Verbreitet wird es glatt.
-  english: There is a risk of light snowfall (Level 1 of 4).
-  Height range: > 400 m;
-  Precipitation amounts: 1-3 cm; in windward areas: < 5 cm;
-  snowfall level: rising to 1500 meter
+  alert_id: 507556137
+  awareness_level: Yellow
+  awareness_type: Extreme low temperature
+  country: DE
+  region: Kreis Ahrweiler
+  from: 2021-02-13T18:00:00+01:00
+  until: 2021-02-14T12:00:00+01:00}
+  languages: ['de']
+  message: Es tritt mäßiger Frost zwischen -7 °C und -9 °C auf. In 
+           Bodennähe wird strenger Frost um -12 °C erwartet.
+  message_id: 3743141168
+  published: 2021-02-14T01:00:00+01:00
 ```
 
 
@@ -59,7 +53,7 @@ from meteoalarm_rssapi import get_regions
 
 print(get_regions('DE'))
 ```
-
+You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language). The indication of **language is optional**, and if no language is specified the messsage will come unparsed and in all available languages. 
 
 The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can
 (*easily*) convert them to your local date/time.
@@ -79,4 +73,5 @@ In conclusion, for one `alert_id` there are several `message_id`
 [1]: https://pypi.org/project/meteoalarm-rssapi/
 [2]: https://github.com/xlcnd/meteoalarm-rssapi/actions
 [3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+is%3Abug
+[4]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
