@@ -8,9 +8,9 @@ from .exceptions import (
     MeteoAlarmMissingInfo,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
+    MeteoAlarmUnavailableLanguageError,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
-    MeteoAlarmUnavailableLanguageError,
 )
 
 __version__ = "0.3.0"

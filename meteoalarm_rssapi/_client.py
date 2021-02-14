@@ -4,9 +4,9 @@ from ._resources import awareness_levels, awareness_types
 from ._resources import countries_list as _countries
 from ._resources import regions
 from .exceptions import (
+    MeteoAlarmUnavailableLanguageError,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
-    MeteoAlarmUnavailableLanguageError,
 )
 
 

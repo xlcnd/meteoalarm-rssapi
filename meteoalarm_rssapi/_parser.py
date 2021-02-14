@@ -4,7 +4,7 @@ from zlib import crc32
 
 import feedparser
 
-from ._helpers import cet2iso8601, _days_since, strdt2iso8601
+from ._helpers import _days_since, cet2iso8601, strdt2iso8601
 from ._resources import awl, awl_to_num, awt, countries
 from ._webquery import query
 from .exceptions import (
