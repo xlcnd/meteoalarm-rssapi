@@ -2,7 +2,7 @@
 # flake8: noqa
 # isort:skip_file
 
-# meteoalarm_rssapi -- an 'API' for meteoalarm.eu using the rss feeds.
+# meteoalarm-rssapi -- an 'API' for meteoalarm.eu using the rss feeds.
 # Copyright (C) 2021 Alexandre Lima Conde
 # SPDX-License-Identifier: GPL-3.0-or-later
 
