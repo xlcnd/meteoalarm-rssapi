@@ -6,7 +6,7 @@
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
 
-> *DISCLAIMER: This is an open source project and doesn't have any connection with [meteoalarm.eu](https://www.meteoalarm.eu/)*.
+> *DISCLAIMER: This is an open source project and doesn't have any affiliation with [meteoalarm.eu](https://www.meteoalarm.eu/)*.
 
 
 To install enter in a command line:

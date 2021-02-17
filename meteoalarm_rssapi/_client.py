@@ -12,7 +12,10 @@ from .exceptions import (
 
 class MeteoAlarm:
     def __init__(self, country, region, language=None):
-        country = country.upper()
+        try:
+            country = country.upper()
+        except AttributeError:
+            raise MeteoAlarmUnrecognizedCountryError()
         if country not in _countries:
             raise MeteoAlarmUnrecognizedCountryError()
         self._country = country
