@@ -4,7 +4,6 @@ import gzip
 from io import BytesIO
 from socket import timeout as sockettimeout
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 from .exceptions import MeteoAlarmServiceError
@@ -16,7 +15,7 @@ UA = "meteoalarm-rssapi/{version} (gzip)".format(version=__version__)
 TIMEOUT = 20
 
 
-class WEBQuery(object):
+class WEBQuery:
     """Class to query web services."""
 
     def __init__(self, url, timeout=TIMEOUT):

@@ -1,5 +1,4 @@
 import re
-from datetime import datetime
 from zlib import crc32
 
 import feedparser
@@ -62,7 +61,7 @@ def lang_parser(msg, lang, country):
         )
         return RE_LANG.search(msg).group(1).strip(": ")
     except Exception:
-        pass
+        return ""
 
 
 def parser(url, country, region, language):

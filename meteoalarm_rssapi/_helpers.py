@@ -3,7 +3,7 @@ from datetime import datetime
 from ._resources import countries as res_countries
 from ._resources import regions
 from ._webquery import query as wquery
-from .exceptions import MeteoAlarmServiceError
+from .exceptions import MeteoAlarmServiceError, MeteoAlarmUnrecognizedCountryError
 
 
 def cet2iso8601(cet):

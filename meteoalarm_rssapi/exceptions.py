@@ -1,8 +1,6 @@
 class MeteoAlarmException(Exception):
     """Base class."""
 
-    pass
-
 
 class MeteoAlarmServiceError(MeteoAlarmException):
     pass
