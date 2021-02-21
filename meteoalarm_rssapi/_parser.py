@@ -127,7 +127,7 @@ def parser(url, country, region, language):
                 if mcrc in ids:
                     continue
                 ids.append(mcrc)
-                acrc = crc32(bytes(region + atype + from_date[0:5], "utf-8"))
+                acrc = crc32(bytes(region + atype + from_date[0:12], "utf-8"))
                 result.append(
                     {
                         "alert_id": acrc,
