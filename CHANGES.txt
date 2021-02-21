@@ -26,4 +26,4 @@ v0.2.5, 2021-02-12 -- assure proper order on alerts.
 v0.2.6, 2021-02-12 -- (NOT RELEASED).
 v0.3.0, 2021-02-14 -- add language parsing of message field.
 v0.3.1, 2021-02-17 -- expose more resources.
-v0.3.2, 2021-02-17 -- fix bug on 'alert_id'.
+v0.3.2, 2021-02-17 -- change 'alert_id' algorithm.
