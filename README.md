@@ -62,7 +62,7 @@ The timestamps for `published`, `from` and `until` are in ISO8601 format, so tha
 There are two pieces of information that could be important for your applications:
 
 1. `alert_id` changes to a new value (for a given `awareness_type`) when there is a change in the
-   day/month of `from`. So, doesn't change if there are only a revision of the H:M, a revision
+   day/month or first digit of hour of `from`. So, doesn't change if there are only a revision of the H:MM, a revision
    for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `published`, `from`, `until` or `awareness_level`.
 
