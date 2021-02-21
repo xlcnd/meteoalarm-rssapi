@@ -116,6 +116,10 @@ data/
 .changelog*
 *(copy)*
 .isort*
+.gitignore
+.flake8
+.noserc
+.pylintrc
 
 # scripts
 get_*
