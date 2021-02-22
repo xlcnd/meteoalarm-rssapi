@@ -1,7 +1,8 @@
 # flake8:noqa
 # pylint:skip-file
 # isort:skip_file
-# Produced by 'meteoalarm-tools'@'2021-02-22UTC08:46'
+# fmt:off
+# Produced by 'meteoalarm-tools'@'2021-02-22UTC09:22'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
