@@ -1,12 +1,12 @@
 # flake8:noqa
 # pylint:skip-file
+# isort:skip_file
 # Produced by 'meteoalarm-tools'@'2021-02-18UTC23:01'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
 # PULL THE RELEVANT INFORMATION FROM meteoalarm.eu
 #            DON'T EDIT IT MANUALLY!
-
 
 
 regions={
