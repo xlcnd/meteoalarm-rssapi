@@ -43,10 +43,7 @@ and you will get (after some `pprint`):
 ```
 
 
-You need to know your [ISO 3166-1 Alpha-2][5] country code (e.g. DE) and the **exact name** of your region
-**as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that,
-please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/),
-or run the following script:
+You need to know your [ISO 3166-1 Alpha-2][5] country code (e.g. DE) and the **exact name** of your region **as reported by your national agency to meteoalarm.eu** (e.g. Kreis Ahrweiler). For that, please check the page for your country in [meteoalarm.eu](https://www.meteoalarm.eu/), or run the following script:
 
 ```python
 from meteoalarm_rssapi import get_regions
@@ -55,19 +52,15 @@ print(get_regions('DE'))
 ```
 You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language ('de')). The indication of **language is optional**, and if no language is specified the message will come unparsed and in all available languages.
 
-The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can
-(*easily*) convert them to your local date/time.
+The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can (*easily*) convert them to your local date/time.
 
 
 There are two pieces of information that could be important for your applications:
 
-1. `alert_id` changes to a new value (for a given `awareness_type`) when there is a change in the
-   day/month or first digit of hour of `from`. So, doesn't change if there are only a revision of the H:MM, a revision
-   for `until` or a change in the `awareness_level`.
+1. `alert_id` changes to a new value (for a given `awareness_type`) when there is a change in the day/month or first digit of hour of `from`. So, doesn't change if there are only a revision of the H:MM, a revision for `until` or a change in the `awareness_level`.
 2. `message_id` changes with any change in `message`, `published`, `from`, `until` or `awareness_level`.
 
-In conclusion, for one `alert_id` there are several `message_id`
-(that can be taken as the revisions of the `alert_id`).
+In conclusion, for one `alert_id` there are several `message_id` (that can be taken as the revisions of the `alert_id`).
 
 
 [1]: https://pypi.org/project/meteoalarm-rssapi/
@@ -75,4 +68,3 @@ In conclusion, for one `alert_id` there are several `message_id`
 [3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+is%3Abug
 [4]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 [5]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-
