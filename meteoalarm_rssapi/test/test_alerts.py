@@ -29,5 +29,3 @@ def test_alerts_elhierro():
     """Minimal test for 'alerts' (ES 'El Hierro')."""
     meteo = MeteoAlarm("ES", "El Hierro")
     print(meteo.alerts())
-
-

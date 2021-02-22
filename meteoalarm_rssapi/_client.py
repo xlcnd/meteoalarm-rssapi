@@ -11,6 +11,7 @@ from .exceptions import (
 
 TIMEOUT = 20
 
+
 class MeteoAlarm:
     def __init__(self, country, region, language=None, timeout=TIMEOUT):
         try:

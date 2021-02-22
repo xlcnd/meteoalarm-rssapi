@@ -51,8 +51,8 @@ def lang_parser(msg, lang, country):
         # SPECIAL CASE 1
         if len(quirk) == 1:
             if len(langs) == 1:
-                return msg.split(quirk[-1])[1].strip(': ')
-            return msg.split(quirk[-1])[idx].strip(': ')
+                return msg.split(quirk[-1])[1].strip(": ")
+            return msg.split(quirk[-1])[idx].strip(": ")
         # SPECIAL CASE 2
         if idx == len(langs) - 1:
             m = msg.split(quirk[-1])[1]
@@ -111,6 +111,7 @@ def parser(url, country, region, language, timeout):
                 msg = RE_MSG.search(row).group(1).strip()
                 msg = re.sub(RE_EOL, " ", msg)
                 msg = re.sub(RE_WS, " ", msg)
+                msg = msg.replace("\u200b", "").replace("\u200c", "")
                 if language:
                     msg = lang_parser(msg, language, country)
                 mcrc = crc32(
