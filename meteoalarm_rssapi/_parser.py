@@ -50,6 +50,8 @@ def lang_parser(msg, lang, country):
                 break
         # SPECIAL CASE 1
         if len(quirk) == 1:
+            if msg.startswith(quirk[-1]):
+                return msg.split(quirk[-1])[1].strip(': ')
             return msg.split(quirk[-1])[idx].strip()
         # SPECIAL CASE 2
         if idx == len(langs) - 1:
