@@ -9,9 +9,10 @@ from .exceptions import (
     MeteoAlarmUnrecognizedRegionError,
 )
 
+TIMEOUT = 20
 
 class MeteoAlarm:
-    def __init__(self, country, region, language=None):
+    def __init__(self, country, region, language=None, timeout=TIMEOUT):
         try:
             country = country.upper()
         except AttributeError:
@@ -33,6 +34,7 @@ class MeteoAlarm:
             iso=country.lower(), country=country.upper(), code=code
         )
         self._url = url
+        self._timeout = timeout
 
     @staticmethod
     def countries():
@@ -56,4 +58,4 @@ class MeteoAlarm:
         return get_languages(self._country)
 
     def alerts(self):
-        return parser(self._url, self._country, self._region, self._lang)
+        return parser(self._url, self._country, self._region, self._lang, self._timeout)

@@ -29,7 +29,6 @@ KEYS = (
 
 GREEN_MESSAGE = "No special awareness required"
 DAYS_PAST_TO_WHITE = 3
-TIMEOUT = 10
 
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
@@ -65,10 +64,10 @@ def lang_parser(msg, lang, country):
         return ""
 
 
-def parser(url, country, region, language):
+def parser(url, country, region, language, timeout):
     try:
 
-        feed = feedparser.parse(query(url, timeout=TIMEOUT))
+        feed = feedparser.parse(query(url, timeout))
 
         alerts = [
             entry["description"]
