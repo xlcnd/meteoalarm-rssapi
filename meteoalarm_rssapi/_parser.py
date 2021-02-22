@@ -52,7 +52,7 @@ def lang_parser(msg, lang, country):
         if len(quirk) == 1:
             if len(langs) == 1:
                 return msg.split(quirk[-1])[1].strip(': ')
-            return msg.split(quirk[-1])[idx].strip()
+            return msg.split(quirk[-1])[idx].strip(': ')
         # SPECIAL CASE 2
         if idx == len(langs) - 1:
             m = msg.split(quirk[-1])[1]
