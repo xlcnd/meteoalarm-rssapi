@@ -34,9 +34,9 @@ and you will get (after some `pprint`):
   country: DE
   region: Kreis Ahrweiler
   from: 2021-02-13T18:00:00+01:00
-  until: 2021-02-14T12:00:00+01:00}
+  until: 2021-02-14T12:00:00+01:00
   languages: ['de']
-  message: Es tritt mäßiger Frost zwischen -7 °C und -9 °C auf. In 
+  message: Es tritt mäßiger Frost zwischen -7 °C und -9 °C auf. In
            Bodennähe wird strenger Frost um -12 °C erwartet.
   message_id: 3743141168
   published: 2021-02-14T01:00:00+01:00
@@ -53,7 +53,7 @@ from meteoalarm_rssapi import get_regions
 
 print(get_regions('DE'))
 ```
-You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language ('de')). The indication of **language is optional**, and if no language is specified the message will come unparsed and in all available languages. 
+You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language ('de')). The indication of **language is optional**, and if no language is specified the message will come unparsed and in all available languages.
 
 The timestamps for `published`, `from` and `until` are in ISO8601 format, so that you can
 (*easily*) convert them to your local date/time.
