@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 from meteoalarm_rssapi import MeteoAlarm
 
 
@@ -32,3 +29,5 @@ def test_alerts_elhierro():
     """Minimal test for 'alerts' (ES 'El Hierro')."""
     meteo = MeteoAlarm("ES", "El Hierro")
     print(meteo.alerts())
+
+
