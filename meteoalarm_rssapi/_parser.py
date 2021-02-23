@@ -11,19 +11,6 @@ from .exceptions import (
     MeteoAlarmServiceError,
 )
 
-KEYS = (
-    "alert_id",
-    "country",
-    "region",
-    "awareness_type",
-    "awareness_level",
-    "from",
-    "until",
-    "message",
-    "message_id",
-    "published",
-    "languages",
-)
 
 GREEN_MESSAGE = "No special awareness required"
 DAYS_PAST_TO_WHITE = 3
@@ -40,6 +27,14 @@ RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
 
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
+
+
+def clean(msg):
+    msg = re.sub(RE_EOL, " ", msg)
+    msg = re.sub(RE_WS, " ", msg)
+    msg = msg.replace("\u200b", "").replace("\u200c", "")
+    msg = msg.replace("&lt;", "<").replace("&gt;", ">")
+    return msg
 
 
 def lang_parser(msg, lang, country):
@@ -90,9 +85,8 @@ def parser(url, country, region, language, timeout):
         if not table:
             return ()
 
-        # pub_parser
+        # pub_parser & WHITE (missing info)
         pub_date = RE_PUBDATE.search(rss).group(1)[5:]
-        # WHITE (missing info)
         if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
             raise MeteoAlarmMissingInfo
 
@@ -116,10 +110,7 @@ def parser(url, country, region, language, timeout):
                 if GREEN_MESSAGE in row:
                     continue
                 msg = RE_MSG.search(row).group(1).strip()
-                msg = re.sub(RE_EOL, " ", msg)
-                msg = re.sub(RE_WS, " ", msg)
-                msg = msg.replace("\u200b", "").replace("\u200c", "")
-                msg = msg.replace("&lt;", "<").replace("&gt;", ">")
+                msg = clean(msg)
                 if language:
                     msg = lang_parser(msg, language, country)
                 mcrc = crc32(
@@ -137,6 +128,7 @@ def parser(url, country, region, language, timeout):
                 if mcrc in ids:
                     continue
                 ids.append(mcrc)
+
                 acrc = crc32(bytes(region + atype + from_date[0:12], "utf-8"))
                 result.append(
                     {
