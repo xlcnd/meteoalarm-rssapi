@@ -32,7 +32,7 @@ class MeteoAlarm:
             raise MeteoAlarmUnavailableLanguageError()
         self._lang = language
         url = "https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss".format(
-            iso=country.lower(), country=country.upper(), code=code
+            iso=country.lower(), country=country.upper(), code=code,
         )
         self._url = url
         self._timeout = timeout

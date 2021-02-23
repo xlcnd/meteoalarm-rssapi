@@ -61,7 +61,7 @@ def lang_parser(msg, lang, country):
             return parsed if parsed else msg
         # NORMAL CASE
         RE_LANG = re.compile(
-            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]), re.I | re.M | re.S
+            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]), re.I | re.M | re.S,
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
         return parsed if parsed else msg
@@ -73,9 +73,11 @@ def parser(url, country, region, language, timeout):
     try:
 
         # Query
-        data = query(url, timeout=3) or ""
+        tmfast = int(0.3 * timeout)
+        tmslow = int(0.7 * timeout)
+        data = query(url, timeout=tmfast) or ""
         if not data:
-            data = query(meteo._url, timeout=7)
+            data = query(url, timeout=tmslow)
         rss = data.decode("UTF-8", "ignore") if data else ""
 
         # table_parser
@@ -124,7 +126,7 @@ def parser(url, country, region, language, timeout):
                         + msg
                         + pub_date,
                         "utf-8",
-                    )
+                    ),
                 )
                 if mcrc in ids:
                     continue
@@ -153,8 +155,8 @@ def parser(url, country, region, language, timeout):
         return tuple(
             sorted(
                 result,
-                key=lambda d: (d.get("from"), -awl_to_num[d.get("awareness_level")],),
-            )
+                key=lambda d: (d.get("from"), -awl_to_num[d.get("awareness_level")]),
+            ),
         )
 
     except (MeteoAlarmMissingInfo, MeteoAlarmServiceError):
