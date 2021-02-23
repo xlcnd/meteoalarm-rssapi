@@ -73,9 +73,9 @@ def parser(url, country, region, language, timeout):
     try:
 
         # Query
-        data = query(url, timeout=5) or ""
+        data = query(url, timeout=3) or ""
         if not data:
-            data = query(meteo._url, timeout=5)
+            data = query(meteo._url, timeout=7)
         rss = data.decode("UTF-8", "ignore") if data else ""
 
         # table_parser
