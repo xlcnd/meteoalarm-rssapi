@@ -11,6 +11,7 @@ from .exceptions import (
     MeteoAlarmServiceError,
 )
 
+# pylint: disable=too-many-locals
 GREEN_MESSAGE = "No special awareness required"
 DAYS_PAST_TO_WHITE = 3
 
@@ -65,7 +66,7 @@ def lang_parser(msg, lang, country):
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
         return parsed if parsed else msg
-    except Exception:
+    except Exception:  # pylint: disable=broad-except
         return msg
 
 
