@@ -11,7 +11,6 @@ from .exceptions import (
     MeteoAlarmServiceError,
 )
 
-
 GREEN_MESSAGE = "No special awareness required"
 DAYS_PAST_TO_WHITE = 3
 
@@ -90,6 +89,7 @@ def parser(url, country, region, language, timeout):
         if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
             raise MeteoAlarmMissingInfo
 
+        # rows_parser
         result = []
         ids = []
         rows = RE_TR.findall(table)
@@ -113,6 +113,7 @@ def parser(url, country, region, language, timeout):
                 msg = clean(msg)
                 if language:
                     msg = lang_parser(msg, language, country)
+
                 mcrc = crc32(
                     bytes(
                         region
@@ -130,6 +131,7 @@ def parser(url, country, region, language, timeout):
                 ids.append(mcrc)
 
                 acrc = crc32(bytes(region + atype + from_date[0:12], "utf-8"))
+
                 result.append(
                     {
                         "alert_id": acrc,
