@@ -71,16 +71,16 @@ def lang_parser(msg, lang, country):
 def parser(rss, country, region, language):
     try:
 
+        # pub_parser & WHITE (missing info)
+        pub_date = RE_PUBDATE.search(rss).group(1)[5:]
+        if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
+            raise MeteoAlarmMissingInfo
+
         # table_parser
         data = RE_DESCRIPTION.findall(rss)
         table = data[1] if data else ""
         if not table:
             return ()
-
-        # pub_parser & WHITE (missing info)
-        pub_date = RE_PUBDATE.search(rss).group(1)[5:]
-        if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
-            raise MeteoAlarmMissingInfo
 
         # rows_parser
         result = []
