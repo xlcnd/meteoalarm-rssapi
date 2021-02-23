@@ -30,3 +30,4 @@ v0.3.2, 2021-02-21 -- change 'alert_id' algorithm.
 v0.3.3, 2021-02-22 -- fix 'missing exception' bug.
 v0.3.4, 2021-02-22 -- add timeout to MeteoAlarm and close #2.
 v0.3.5, 2021-02-23 -- drop dependency on feedparser.
+v0.3.6, 2021-02-23 -- TENTATIVE
