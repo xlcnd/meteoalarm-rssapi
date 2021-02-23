@@ -33,7 +33,7 @@ def clean(msg):
     msg = re.sub(RE_WS, " ", msg)
     msg = msg.replace("\u200b", "").replace("\u200c", "")
     msg = msg.replace("&lt;", "<").replace("&gt;", ">")
-    return msg
+    return msg.strip()
 
 
 def lang_parser(msg, lang, country):
@@ -109,7 +109,7 @@ def parser(url, country, region, language, timeout):
                 # get: msg from rows 1, 3, 5, ...
                 if GREEN_MESSAGE in row:
                     continue
-                msg = RE_MSG.search(row).group(1).strip()
+                msg = RE_MSG.search(row).group(1)
                 msg = clean(msg)
                 if language:
                     msg = lang_parser(msg, language, country)
