@@ -3,7 +3,9 @@ from ._parser import parser
 from ._resources import awareness_levels, awareness_types
 from ._resources import countries_list as _countries
 from ._resources import regions
+from ._webquery import query
 from .exceptions import (
+    MeteoAlarmServiceError,
     MeteoAlarmUnavailableLanguageError,
     MeteoAlarmUnrecognizedCountryError,
     MeteoAlarmUnrecognizedRegionError,
@@ -59,4 +61,15 @@ class MeteoAlarm:
         return get_languages(self._country)
 
     def alerts(self):
-        return parser(self._url, self._country, self._region, self._lang, self._timeout)
+        try:
+            tmfast = int(0.3 * self._timeout)
+            tmslow = int(0.7 * self._timeout)
+            data = query(self._url, timeout=tmfast) or ""
+            if not data:
+                data = query(self._url, timeout=tmslow)
+            rss = data.decode("UTF-8", "ignore") if data else ""
+            if not rss:
+                return ()
+        except MeteoAlarmServiceError:
+            raise MeteoAlarmServiceError()
+        return parser(rss, self._country, self._region, self._lang)

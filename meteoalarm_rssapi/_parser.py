@@ -3,9 +3,7 @@ from zlib import crc32
 
 from ._helpers import _days_since, cet2iso8601, strdt2iso8601
 from ._resources import awl, awl_to_num, awt, countries
-from ._webquery import query
 from .exceptions import (
-    MeteoAlarmException,
     MeteoAlarmMissingInfo,
     MeteoAlarmParseError,
     MeteoAlarmServiceError,
@@ -70,16 +68,8 @@ def lang_parser(msg, lang, country):
         return msg
 
 
-def parser(url, country, region, language, timeout):
+def parser(rss, country, region, language):
     try:
-
-        # Query
-        tmfast = int(0.3 * timeout)
-        tmslow = int(0.7 * timeout)
-        data = query(url, timeout=tmfast) or ""
-        if not data:
-            data = query(url, timeout=tmslow)
-        rss = data.decode("UTF-8", "ignore") if data else ""
 
         # table_parser
         data = RE_DESCRIPTION.findall(rss)
@@ -160,7 +150,7 @@ def parser(url, country, region, language, timeout):
             ),
         )
 
-    except (MeteoAlarmMissingInfo, MeteoAlarmServiceError):
+    except MeteoAlarmMissingInfo:
         raise MeteoAlarmServiceError()
     except Exception:
         raise MeteoAlarmParseError()
