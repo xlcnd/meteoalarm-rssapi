@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-02-23UTC10:00'
+# Produced by 'meteoalarm-tools'@'2021-02-23UTC18:27'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2050,7 +2050,7 @@ countries={
 "AT":("AT-Austria","de,en","deutsch,english"),
 "BA":("BA-Bosnia-Herzegovina","bs,en","/"),
 "BE":("BE-Belgium","nl,fr","nederlands,français"),
-"BG":("BG-Bulgaria","cu","български"),
+"BG":("BG-Bulgaria","bu","български"),
 "CH":("CH-Switzerland","en","english"),
 "CY":("CY-Cyprus","en,el","english,Ελληνικά"),
 "CZ":("CZ-Czechia","cs,en","čeština,english"),
