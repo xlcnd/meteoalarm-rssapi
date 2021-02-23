@@ -80,5 +80,4 @@ setup(
     long_description_content_type="text/markdown",
     keywords='meteoalarm',
     classifiers=PYPI_CLASSIFIERS,
-    install_requires=['feedparser==6.0.2'],
 )

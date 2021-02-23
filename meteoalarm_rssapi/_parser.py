@@ -1,8 +1,6 @@
 import re
 from zlib import crc32
 
-import feedparser
-
 from ._helpers import _days_since, cet2iso8601, strdt2iso8601
 from ._resources import awl, awl_to_num, awt, countries
 from ._webquery import query
@@ -30,12 +28,16 @@ KEYS = (
 GREEN_MESSAGE = "No special awareness required"
 DAYS_PAST_TO_WHITE = 3
 
+RE_DESCRIPTION = re.compile(r"<description>(.*?)</description", re.I | re.M | re.S)
+RE_PUBDATE = re.compile(r"<pubDate>(.*?)</pubDate>", re.I | re.M | re.S)
+
 RE_TR = re.compile(r"<tr(.*?)</tr>", re.I | re.M | re.S)
 RE_AWT = re.compile(r'alt="awt:(.*?) ', re.I | re.M | re.S)
 RE_AWL = re.compile(r'level:(.*?)"', re.I | re.M | re.S)
 RE_FROM = re.compile(r"From: </b><i>(.*?)</i><b>", re.I | re.M | re.S)
 RE_UNTIL = re.compile(r"Until: </b><i>(.*?)</i>", re.I | re.M | re.S)
 RE_MSG = re.compile(r"<td>(.*?)</td>", re.I | re.M | re.S)
+
 RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
 
@@ -56,7 +58,7 @@ def lang_parser(msg, lang, country):
                 if quirk[-1] in msg:
                     parsed = msg.split(quirk[-1])[idx].strip(": ")
                 else:
-                    parsed = ''
+                    parsed = ""
             return parsed if parsed else msg
         # SPECIAL CASE 2
         if idx == len(langs) - 1:
@@ -76,29 +78,27 @@ def lang_parser(msg, lang, country):
 def parser(url, country, region, language, timeout):
     try:
 
-        feed = feedparser.parse(query(url, timeout))
+        # Query
+        data = query(url, timeout=5) or ""
+        if not data:
+            data = query(meteo._url, timeout=5)
+        rss = data.decode("UTF-8", "ignore") if data else ""
 
-        alerts = [
-            entry["description"]
-            for entry in feed["entries"]
-            if entry["title"] == region
-        ]
-        target = alerts[0] if alerts else ""
-        if not target:
+        # table_parser
+        data = RE_DESCRIPTION.findall(rss)
+        table = data[1] if data else ""
+        if not table:
             return ()
 
-        pub_date = [
-            entry["published"][5:]
-            for entry in feed["entries"]
-            if entry["title"] == region
-        ][0]
+        # pub_parser
+        pub_date = RE_PUBDATE.search(rss).group(1)[5:]
         # WHITE (missing info)
         if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
             raise MeteoAlarmMissingInfo
 
         result = []
         ids = []
-        rows = RE_TR.findall(target)
+        rows = RE_TR.findall(table)
         rows = [r for r in rows if "Today<" not in r and "Tomorrow<" not in r]
         for i, row in enumerate(rows):
 
