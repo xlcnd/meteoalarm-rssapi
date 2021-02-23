@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-02-22UTC09:22'
+# Produced by 'meteoalarm-tools'@'2021-02-23UTC09:13'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2074,6 +2074,9 @@ countries={
 "SK":("SK-Slovakia","sk,en","slovenčina,english"),
 "UK":("UK-United%20Kingdom","en",""),
 }
+
+
+KEYS=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages",)
 awl_to_num={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
 awareness_levels=(('White','Missing, insufficient, outdated or suspicious data.'), ('Green','No particular awareness of the weather is required.'), ('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'), ('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'), ('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.'))
 awareness_types=('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
