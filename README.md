@@ -65,6 +65,6 @@ In conclusion, for one `alert_id` there are several `message_id` (that can be ta
 
 [1]: https://pypi.org/project/meteoalarm-rssapi/
 [2]: https://github.com/xlcnd/meteoalarm-rssapi/actions
-[3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+is%3Abug
+[3]: https://github.com/xlcnd/meteoalarm-rssapi/issues?q=is%3Aissue+is%3Aopen+label%3Abug
 [4]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 [5]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
