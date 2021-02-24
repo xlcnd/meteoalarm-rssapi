@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 from meteoalarm_rssapi import MeteoAlarm, get_regions
 
 

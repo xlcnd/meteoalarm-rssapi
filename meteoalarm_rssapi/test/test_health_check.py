@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from meteoalarm_rssapi import MeteoAlarm, service_health_check
 
 
