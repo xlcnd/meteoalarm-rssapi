@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-02-24UTC17:54'
+# Produced by 'meteoalarm-tools'@'2021-02-26UTC12:57'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2088,8 +2088,10 @@ countries={
 
 
 KEYS=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages",)
+languages_map={"bosnian":"bs","dansk":"dk","deutsch":"de","eesti keel":"et","english":"en","español":"es","français":"fr","hrvatski":"hr","italiano":"it","latviešu":"lv","lietuviu":"lt","magyar":"hu","македонски јазик":"mk","malti":"mt","nederlands":"nl","norsk":"no","polski":"pl","português":"pt","româna":"ro","slovenčina":"sk","slovenščina":"sl","suomi":"fi","svenska":"sv","íslenska":"is","čeština":"cs","Ελληνικά":"el","Црногорски":"sr","български":"bg","עברית":"he"}
+countries_map={'Austria':'AT','Bosnia-Herzegovina':'BA','Belgium':'BE','Bulgaria':'BG','Switzerland':'CH','Cyprus':'CY','Czechia':'CZ','Germany':'DE','Denmark':'DK','Estonia':'EE','Spain':'ES','Finland':'FI','France':'FR','Greece':'GR','Croatia':'HR','Hungary':'HU','Ireland':'IE','Israel':'IL','Iceland':'IS','Italy':'IT','Lithuania':'LT','Luxembourg':'LU','Latvia':'LV','Moldova':'MD','Montenegro':'ME','Republic of North Macedonia':'MK','Malta':'MT','Netherlands':'NL','Norway':'NO','Poland':'PL','Portugal':'PT','Romania':'RO','Serbia':'RS','Sweden':'SE','Slovenia':'SI','Slovakia':'SK','United Kingdom':'UK'}
+countries_list=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
+languages_list=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
 awl_to_num={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
 awareness_levels=(('White','Missing, insufficient, outdated or suspicious data.'), ('Green','No particular awareness of the weather is required.'), ('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'), ('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'), ('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.'))
 awareness_types=('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
-countries_list=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
-languages_list=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
