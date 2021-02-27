@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-02-26UTC12:57'
+# Produced by 'meteoalarm-tools'@'2021-02-27UTC11:56'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2047,49 +2047,49 @@ awl={
 
 
 countries={
-"AT":("AT-Austria","de,en","deutsch,english"),
-"BA":("BA-Bosnia-Herzegovina","bs,en","/"),
-"BE":("BE-Belgium","nl,fr","nederlands,français"),
-"BG":("BG-Bulgaria","bg","български"),
-"CH":("CH-Switzerland","en","english"),
-"CY":("CY-Cyprus","en,el","english,Ελληνικά"),
-"CZ":("CZ-Czechia","cs,en","čeština,english"),
-"DE":("DE-Germany","de,en","deutsch,english"),
-"DK":("DK-Denmark","dk,en","dansk,english"),
-"EE":("EE-Estonia","et,en",". "),
-"ES":("ES-Spain","es,en","español,english"),
-"FI":("FI-Finland","fi,sv,en","suomi,svenska,english"),
-"FR":("FR-France","fr,en","français,english"),
-"GR":("GR-Greece","en,el","english,Ελληνικά"),
-"HR":("HR-Croatia","hr,en","hrvatski,english"),
-"HU":("HU-Hungary","hu,en","magyar,english"),
-"IE":("IE-Ireland","en","english"),
-"IL":("IL-Israel","en,he","english,עברית"),
-"IS":("IS-Iceland","is,en","íslenska,english"),
-"IT":("IT-Italy","it,en","italiano,english"),
-"LT":("LT-Lithuania","lt","lietuviu"),
-"LU":("LU-Luxembourg","fr,de,en","français,deutsch,english"),
-"LV":("LV-Latvia","en,lv","english,latviešu"),
-"MD":("MD-Moldova","ro",""),
-"ME":("ME-Montenegro","en,sr","english,Црногорски"),
-"MK":("MK-Republic%20of%20North%20Macedonia","mk",""),
-"MT":("MT-Malta","en,mt","English,Malti"),
-"NL":("NL-Netherlands","nl,en","nederlands,english"),
-"NO":("NO-Norway","no,en","norsk,english"),
-"PL":("PL-Poland","pl,en","polski,english"),
-"PT":("PT-Portugal","pt,en","português,english"),
-"RO":("RO-Romania","ro,en","româna,english"),
-"RS":("RS-Serbia","en,sr","english,српски"),
-"SE":("SE-Sweden","sv,en","svenska,english"),
-"SI":("SI-Slovenia","sl,en","slovenščina,english"),
-"SK":("SK-Slovakia","sk,en","slovenčina,english"),
-"UK":("UK-United%20Kingdom","en",""),
+"AT":("AT-Austria","de,en","deutsch,english","de","Österreich"),
+"BA":("BA-Bosnia-Herzegovina","bs,en","/","bs","Bosnia I Hercegovína"),
+"BE":("BE-Belgium","nl,fr","nederlands,français","nl,fr","België,Belgique"),
+"BG":("BG-Bulgaria","bg","български","bg","България"),
+"CH":("CH-Switzerland","en","english","fr,de,it","Suisse,Schweiz,Svizzera"),
+"CY":("CY-Cyprus","en,el","english,Ελληνικά","el","Κύπρος"),
+"CZ":("CZ-Czechia","cs,en","čeština,english","cs","Česko"),
+"DE":("DE-Germany","de,en","deutsch,english","de","Deutschland"),
+"DK":("DK-Denmark","dk,en","dansk,english","dk","Danmark"),
+"EE":("EE-Estonia","et,en",". ","et","Eesti"),
+"ES":("ES-Spain","es,en","español,english","es","España"),
+"FI":("FI-Finland","fi,sv,en","suomi,svenska,english","fi,sv","Suomi,Finland"),
+"FR":("FR-France","fr,en","français,english","fr","France"),
+"GR":("GR-Greece","en,el","english,Ελληνικά","el","Ελλάς"),
+"HR":("HR-Croatia","hr,en","hrvatski,english","hr","Hrvatska"),
+"HU":("HU-Hungary","hu,en","magyar,english","hu","Magyarország"),
+"IE":("IE-Ireland","en","english","en","Ireland"),
+"IL":("IL-Israel","en,he","english,עברית","he","ישראל"),
+"IS":("IS-Iceland","is,en","íslenska,english","is","Ísland"),
+"IT":("IT-Italy","it,en","italiano,english","it","Italia"),
+"LT":("LT-Lithuania","lt","lietuviu","lt","Lietuva"),
+"LU":("LU-Luxembourg","fr,de,en","français,deutsch,english","fr,de","Luxembourg,Luxemburg"),
+"LV":("LV-Latvia","en,lv","english,latviešu","lv","Latvija"),
+"MD":("MD-Moldova","ro","","ro","Moldova"),
+"ME":("ME-Montenegro","en,sr","english,Црногорски","sr","Црна Гора"),
+"MK":("MK-Republic%20of%20North%20Macedonia","mk","","mk","Северна Македонија"),
+"MT":("MT-Malta","en,mt","English,Malti","en,mt","Malta,Malta"),
+"NL":("NL-Netherlands","nl,en","nederlands,english","nl","Nederland"),
+"NO":("NO-Norway","no,en","norsk,english","no","Norge"),
+"PL":("PL-Poland","pl,en","polski,english","pl","Polska"),
+"PT":("PT-Portugal","pt,en","português,english","pt","Portugal"),
+"RO":("RO-Romania","ro,en","româna,english","ro","România"),
+"RS":("RS-Serbia","en,sr","english,српски","sr","Србија"),
+"SE":("SE-Sweden","sv,en","svenska,english","sv","Sverige"),
+"SI":("SI-Slovenia","sl,en","slovenščina,english","sl","Slovenija"),
+"SK":("SK-Slovakia","sk,en","slovenčina,english","sk","Slovensko"),
+"UK":("UK-United%20Kingdom","en","","en","United Kingdom"),
 }
 
 
 KEYS=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages",)
-languages_map={"bosnian":"bs","dansk":"dk","deutsch":"de","eesti keel":"et","english":"en","español":"es","français":"fr","hrvatski":"hr","italiano":"it","latviešu":"lv","lietuviu":"lt","magyar":"hu","македонски јазик":"mk","malti":"mt","nederlands":"nl","norsk":"no","polski":"pl","português":"pt","româna":"ro","slovenčina":"sk","slovenščina":"sl","suomi":"fi","svenska":"sv","íslenska":"is","čeština":"cs","Ελληνικά":"el","Црногорски":"sr","български":"bg","עברית":"he"}
-countries_map={'Austria':'AT','Bosnia-Herzegovina':'BA','Belgium':'BE','Bulgaria':'BG','Switzerland':'CH','Cyprus':'CY','Czechia':'CZ','Germany':'DE','Denmark':'DK','Estonia':'EE','Spain':'ES','Finland':'FI','France':'FR','Greece':'GR','Croatia':'HR','Hungary':'HU','Ireland':'IE','Israel':'IL','Iceland':'IS','Italy':'IT','Lithuania':'LT','Luxembourg':'LU','Latvia':'LV','Moldova':'MD','Montenegro':'ME','Republic of North Macedonia':'MK','Malta':'MT','Netherlands':'NL','Norway':'NO','Poland':'PL','Portugal':'PT','Romania':'RO','Serbia':'RS','Sweden':'SE','Slovenia':'SI','Slovakia':'SK','United Kingdom':'UK'}
+countries_map={"AT":"Österreich","BA":"Bosnia I Hercegovína","BE":"België,Belgique","BG":"България","CH":"Suisse,Schweiz,Svizzera","CY":"Κύπρος","CZ":"Česko","DE":"Deutschland","DK":"Danmark","EE":"Eesti","ES":"España","FI":"Suomi,Finland","FR":"France","GR":"Ελλάς","HR":"Hrvatska","HU":"Magyarország","IE":"Ireland","IL":"ישראל","IS":"Ísland","IT":"Italia","LT":"Lietuva","LU":"Luxembourg,Luxemburg","LV":"Latvija","MD":"Moldova","ME":"Црна Гора","MK":"Северна Македонија","MT":"Malta,Malta","NL":"Nederland","NO":"Norge","PL":"Polska","PT":"Portugal","RO":"România","RS":"Србија","SE":"Sverige","SI":"Slovenija","SK":"Slovensko","UK":"United Kingdom","Österreich":"AT","Bosnia I Hercegovína":"BA","België,Belgique":"BE","България":"BG","Suisse,Schweiz,Svizzera":"CH","Κύπρος":"CY","Česko":"CZ","Deutschland":"DE","Danmark":"DK","Eesti":"EE","España":"ES","Suomi,Finland":"FI","France":"FR","Ελλάς":"GR","Hrvatska":"HR","Magyarország":"HU","Ireland":"IE","ישראל":"IL","Ísland":"IS","Italia":"IT","Lietuva":"LT","Luxembourg,Luxemburg":"LU","Latvija":"LV","Moldova":"MD","Црна Гора":"ME","Северна Македонија":"MK","Malta,Malta":"MT","Nederland":"NL","Norge":"NO","Polska":"PL","Portugal":"PT","România":"RO","Србија":"RS","Sverige":"SE","Slovenija":"SI","Slovensko":"SK","United Kingdom":"UK"}
+languages_map={"bosanski":"bs","dansk":"dk","deutsch":"de","eesti keel":"et","english":"en","español":"es","français":"fr","hrvatski":"hr","italiano":"it","latviešu":"lv","lietuviu":"lt","magyar":"hu","македонски јазик":"mk","malti":"mt","nederlands":"nl","norsk":"no","polski":"pl","português":"pt","româna":"ro","slovenčina":"sk","slovenščina":"sl","suomi":"fi","svenska":"sv","íslenska":"is","čeština":"cs","Ελληνικά":"el","Црногорски":"sr","български":"bg","עברית":"he","bs":"bosanski","dk":"dansk","de":"deutsch","et":"eesti keel","en":"english","es":"español","fr":"français","hr":"hrvatski","it":"italiano","lv":"latviešu","lt":"lietuviu","hu":"magyar","mk":"македонски јазик","mt":"malti","nl":"nederlands","no":"norsk","pl":"polski","pt":"português","ro":"româna","sk":"slovenčina","sl":"slovenščina","fi":"suomi","sv":"svenska","is":"íslenska","cs":"čeština","el":"Ελληνικά","sr":"Црногорски","bg":"български","he":"עברית"}
 countries_list=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
 languages_list=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
 awl_to_num={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
