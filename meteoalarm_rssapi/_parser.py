@@ -35,6 +35,7 @@ def clean(msg):
     return msg.strip()
 
 
+# pylint: disable=broad-except
 def lang_parser(msg, lang, country):
     try:
         langs = countries.get(country)[1].split(",")
@@ -64,7 +65,7 @@ def lang_parser(msg, lang, country):
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
         return parsed if parsed else msg
-    except Exception:  # pylint: disable=broad-except
+    except Exception:
         return msg
 
 
