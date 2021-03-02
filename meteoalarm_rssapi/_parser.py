@@ -61,7 +61,8 @@ def lang_parser(msg, lang, country):
             return parsed if parsed else msg
         # NORMAL CASE
         RE_LANG = re.compile(
-            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]), re.I | re.M | re.S,
+            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]),
+            re.I | re.M | re.S,
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
         return parsed if parsed else msg
@@ -110,13 +111,7 @@ def parser(rss, country, region, language):
 
                 mcrc = crc32(
                     bytes(
-                        region
-                        + atype
-                        + from_date
-                        + until_date
-                        + alevel
-                        + msg
-                        + pub_date,
+                        region + atype + from_date + until_date + alevel + msg + pub_date,
                         "utf-8",
                     ),
                 )

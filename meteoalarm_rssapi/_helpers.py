@@ -42,9 +42,7 @@ def get_languages(country):
 
 
 def countries_iso():
-    return {
-        v[0].replace("%20", " ").split("-", 1)[1]: k for k, v in res_countries.items()
-    }
+    return {v[0].replace("%20", " ").split("-", 1)[1]: k for k, v in res_countries.items()}
 
 
 def service_health_check(url="http://meteoalarm.eu/robots.txt", timeout=2):

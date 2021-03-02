@@ -23,46 +23,45 @@ from datetime import datetime as dt
 from setuptools import setup
 from meteoalarm_rssapi import __version__
 
-PROJECT_NAME = 'meteoalarm_rssapi'
-PROJECT_PACKAGE_NAME = 'meteoalarm_rssapi'
-PROJECT_LICENSE = 'GPL v3'
-PROJECT_LICENSE_URL = 'https://github.com/xlcnd/meteoalarm-rssapi/blob/dev/LICENSE.txt'
-PROJECT_AUTHOR = 'xlcnd'
-PROJECT_COPYRIGHT = '{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
-PROJECT_URL = 'https://github.com/xlcnd/meteoalarm-rssapi'
-PROJECT_EMAIL = 'xlcnd@outlook.com'
+PROJECT_NAME = "meteoalarm_rssapi"
+PROJECT_PACKAGE_NAME = "meteoalarm_rssapi"
+PROJECT_LICENSE = "GPL v3"
+PROJECT_LICENSE_URL = "https://github.com/xlcnd/meteoalarm-rssapi/blob/dev/LICENSE.txt"
+PROJECT_AUTHOR = "xlcnd"
+PROJECT_COPYRIGHT = "{}, {}".format(dt.now().year, PROJECT_AUTHOR)
+PROJECT_URL = "https://github.com/xlcnd/meteoalarm-rssapi"
+PROJECT_EMAIL = "xlcnd@outlook.com"
 PROJECT_VERSION = __version__
 
-PROJECT_GITHUB_USERNAME = 'xlcnd'
-PROJECT_GITHUB_REPOSITORY = 'meteoalarm-rssapi'
+PROJECT_GITHUB_USERNAME = "xlcnd"
+PROJECT_GITHUB_REPOSITORY = "meteoalarm-rssapi"
 
-GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
-                             PROJECT_GITHUB_REPOSITORY)
-GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
+GITHUB_PATH = "{}/{}".format(PROJECT_GITHUB_USERNAME, PROJECT_GITHUB_REPOSITORY)
+GITHUB_URL = "https://github.com/{}".format(GITHUB_PATH)
 
-DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)
+DOWNLOAD_URL = "{}/archive/{}.zip".format(GITHUB_URL, "v" + PROJECT_VERSION)
 PROJECT_URLS = {
-    'Bug Reports': '{}/issues'.format(GITHUB_URL),
-    'License': PROJECT_LICENSE_URL,
+    "Bug Reports": "{}/issues".format(GITHUB_URL),
+    "License": PROJECT_LICENSE_URL,
 }
 
-PYPI_URL = 'https://pypi.org/project/{}/'.format(PROJECT_PACKAGE_NAME)
+PYPI_URL = "https://pypi.org/project/{}/".format(PROJECT_PACKAGE_NAME)
 PYPI_CLASSIFIERS = [
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
-    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-    'Operating System :: OS Independent',
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
-    'Topic :: Software Development :: Libraries :: Python Modules',
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
 PACKAGES = [
-    'meteoalarm_rssapi',
+    "meteoalarm_rssapi",
 ]
 
 setup(
@@ -76,8 +75,8 @@ setup(
     packages=PACKAGES,
     license=PROJECT_LICENSE,
     description='An "API" for meteoalarm.eu using the rss feeds.',
-    long_description=open('README.md').read(),
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    keywords='meteoalarm',
+    keywords="meteoalarm",
     classifiers=PYPI_CLASSIFIERS,
 )
