@@ -35,3 +35,4 @@ v0.3.7, 2021-02-24 -- fix 'cu to bu' bug.
 v0.3.8, 2021-02-25 -- fix 'bu to bg' bug.
 v0.3.9, 2021-02-25 -- (NOT RELEASED).
 v1.0.0, 2021-03-02 -- first 'production' version.
+v1.0.1, 2021-03-02 -- TENTATIVE
