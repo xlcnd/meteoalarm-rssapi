@@ -1,4 +1,4 @@
-from meteoalarm_rssapi import countries_list, country_iso_map
+from .. import countries_list, country_iso_map
 
 
 def test_countries_list():

@@ -1,4 +1,4 @@
-from meteoalarm_rssapi import MeteoAlarm, get_regions
+from .. import MeteoAlarm, get_regions
 
 
 def test_mr_regions():

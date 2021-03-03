@@ -1,4 +1,4 @@
-from meteoalarm_rssapi import MeteoAlarm, service_health_check
+from .. import MeteoAlarm, service_health_check
 
 
 def test_service_health_check_helper():

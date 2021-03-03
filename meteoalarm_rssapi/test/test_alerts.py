@@ -1,4 +1,4 @@
-from meteoalarm_rssapi import MeteoAlarm
+from .. import MeteoAlarm
 
 
 def test_alerts_coimbra():

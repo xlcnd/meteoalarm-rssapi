@@ -1,4 +1,4 @@
-from meteoalarm_rssapi import MeteoAlarm, get_languages, languages_list
+from .. import MeteoAlarm, get_languages, languages_list
 
 
 def test_class_languages():
