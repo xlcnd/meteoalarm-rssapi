@@ -76,4 +76,4 @@ jobs:
     - name: Test with nose
       run: |
         pip install nose
-        nosetests -v meteoalarm_rssapi\test\*
+        nosetests -v test\*
