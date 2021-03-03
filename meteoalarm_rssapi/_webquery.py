@@ -11,7 +11,7 @@ from .exceptions import MeteoAlarmServiceError
 __version__ = "1.0.1"
 
 
-UA = "meteoalarm-rssapi/{version} (gzip)".format(version=__version__)
+UA = f"meteoalarm-rssapi/{__version__} (gzip)"
 TIMEOUT = 20
 
 
@@ -20,7 +20,7 @@ class WEBQuery:
 
     def __init__(self, url, timeout=TIMEOUT):
         if not url.lower().startswith("http"):
-            raise MeteoAlarmServiceError("Url (%s) not allowed!" % url)
+            raise MeteoAlarmServiceError(f"Url ({url}) not allowed!")
         self._url = url
         self._timeout = timeout
         headers = {"Accept-Encoding": "gzip", "User-Agent": UA}
@@ -30,7 +30,7 @@ class WEBQuery:
         try:
             response = urlopen(self._request, timeout=self._timeout)
         except HTTPError as e:
-            raise MeteoAlarmServiceError("(%s) %s" % (e.code, e.msg))
+            raise MeteoAlarmServiceError(f"({e.code}) {e.msg}")
         except URLError as e:
             raise MeteoAlarmServiceError(e.reason)
         except sockettimeout:
