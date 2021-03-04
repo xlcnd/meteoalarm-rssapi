@@ -11,7 +11,7 @@ An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
 To install enter in a command line:
 
-```
+```bash
 pip install meteoalarm-rssapi
 ```
 
