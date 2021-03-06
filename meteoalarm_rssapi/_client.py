@@ -62,9 +62,9 @@ class MeteoAlarm:
     def alerts(self):
         try:
             tmfast = int(0.3 * self._timeout)
-            tmslow = int(0.7 * self._timeout)
             data = query(self._url, timeout=tmfast) or ""
             if not data:
+                tmslow = int(0.7 * self._timeout)
                 data = query(self._url, timeout=tmslow)
             rss = data.decode("UTF-8", "ignore") if data else ""
             if not rss:
