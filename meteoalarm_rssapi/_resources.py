@@ -2066,7 +2066,7 @@ countries={
 "IE":("IE-Ireland","en","english","en","Ireland"),
 "IL":("IL-Israel","en,he","english,עברית","he","ישראל"),
 "IS":("IS-Iceland","is,en","íslenska,english","is","Ísland"),
-"IT":("IT-Italy","it,en","italiano,english","it","Italia"),
+"IT":("IT-Italy","en,it","english,italiano","it","Italia"),
 "LT":("LT-Lithuania","lt","lietuviu","lt","Lietuva"),
 "LU":("LU-Luxembourg","fr,de,en","français,deutsch,english","fr,de","Luxembourg,Luxemburg"),
 "LV":("LV-Latvia","en,lv","english,latviešu","lv","Latvija"),
