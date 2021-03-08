@@ -1,6 +1,6 @@
 ## What's new?
 
-
-**TENTATIVE... Just some refactoring**
+1. Fix 'language parsing' for Italy (issue #6).
+2. TENTATIVE...
 
 
