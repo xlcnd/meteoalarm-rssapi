@@ -53,21 +53,21 @@ def lang_parser(msg, lang, country):
                     parsed = msg.split(quirk[-1])[idx].strip(": ")
                 else:
                     parsed = ""
-            return parsed if parsed else msg
+            return (parsed, True) if parsed else (msg, False)
         # SPECIAL CASE 2
         if idx == len(langs) - 1:
             m = msg.split(quirk[-1])[1]
             parsed = m.replace(quirk[-1], "").strip(": ")
-            return parsed if parsed else msg
+            return (parsed, True) if parsed else (msg, False)
         # NORMAL CASE
         RE_LANG = re.compile(
             r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]),
             re.I | re.M | re.S,
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
-        return parsed if parsed else msg
+        return (parsed, True) if parsed else (msg, False)
     except Exception:
-        return msg
+        return (msg, False)
 
 
 def parser(rss, country, region, language):
@@ -107,7 +107,9 @@ def parser(rss, country, region, language):
                 msg = RE_MSG.search(row).group(1)
                 msg = clean(msg)
                 if language:
-                    msg = lang_parser(msg, language, country)
+                    msg, status = lang_parser(msg, language, country)
+                    language = language if status else ""
+                languages = [language] if language else countries.get(country)[1].split(",")
 
                 mcrc = crc32(
                     bytes(
@@ -133,9 +135,7 @@ def parser(rss, country, region, language):
                         "message": msg,
                         "message_id": mcrc,
                         "published": strdt2iso8601(pub_date),
-                        "languages": [language]
-                        if language
-                        else countries.get(country)[1].split(","),
+                        "languages": languages,
                     },
                 )
 
