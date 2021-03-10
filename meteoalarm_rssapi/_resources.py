@@ -2048,7 +2048,7 @@ awl={
 
 countries={
 "AT":("AT-Austria","de,en","deutsch,english","de","Österreich"),
-"BA":("BA-Bosnia-Herzegovina","bs,en","/","bs","Bosnia I Hercegovína"),
+"BA":("BA-Bosnia-Herzegovina","bs,en"," /","bs","Bosnia I Hercegovína"),
 "BE":("BE-Belgium","nl,fr","nederlands,français","nl,fr","België,Belgique"),
 "BG":("BG-Bulgaria","bg","български","bg","България"),
 "CH":("CH-Switzerland","en","english","fr,de,it","Suisse,Schweiz,Svizzera"),
