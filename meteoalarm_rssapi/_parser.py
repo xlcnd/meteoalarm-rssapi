@@ -73,7 +73,7 @@ def lang_parser(msg, lang, country):
         return (msg, False)
 
 
-def parser(rss, country, region, language):
+def parser(rss, country, region, language=None):
     try:
 
         # pub_parser & WHITE (missing info)
