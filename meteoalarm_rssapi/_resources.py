@@ -2048,7 +2048,7 @@ awl={
 
 countries={
 "AT":("AT-Austria","de,en","deutsch,english","de","Österreich"),
-"BA":("BA-Bosnia-Herzegovina","bs,en"," /","bs","Bosnia I Hercegovína"),
+"BA":("BA-Bosnia-Herzegovina","bs,en","","bs","Bosnia I Hercegovína"),  # empty quirk
 "BE":("BE-Belgium","nl,fr","nederlands,français","nl,fr","België,Belgique"),
 "BG":("BG-Bulgaria","bg","български","bg","България"),
 "CH":("CH-Switzerland","en","english","fr,de,it","Suisse,Schweiz,Svizzera"),
@@ -2056,7 +2056,7 @@ countries={
 "CZ":("CZ-Czechia","cs,en","čeština,english","cs","Česko"),
 "DE":("DE-Germany","de,en","deutsch,english","de","Deutschland"),
 "DK":("DK-Denmark","dk,en","dansk,english","dk","Danmark"),
-"EE":("EE-Estonia","et,en",". ","et","Eesti"),
+"EE":("EE-Estonia","et,en","","et","Eesti"),  # empty quirk
 "ES":("ES-Spain","es,en","español,english","es","España"),
 "FI":("FI-Finland","fi,sv,en","suomi,svenska,english","fi,sv","Suomi,Finland"),
 "FR":("FR-France","fr,en","français,english","fr","France"),
@@ -2070,9 +2070,9 @@ countries={
 "LT":("LT-Lithuania","lt","lietuviu","lt","Lietuva"),
 "LU":("LU-Luxembourg","fr,de,en","français,deutsch,english","fr,de","Luxembourg,Luxemburg"),
 "LV":("LV-Latvia","en,lv","english,latviešu","lv","Latvija"),
-"MD":("MD-Moldova","ro","","ro","Moldova"),
+"MD":("MD-Moldova","ro","","ro","Moldova"),  # empty quirk
 "ME":("ME-Montenegro","en,sr","english,Црногорски","sr","Црна Гора"),
-"MK":("MK-Republic%20of%20North%20Macedonia","mk","","mk","Северна Македонија"),
+"MK":("MK-Republic%20of%20North%20Macedonia","mk","","mk","Северна Македонија"),  # empty quirk
 "MT":("MT-Malta","en,mt","English,Malti","en,mt","Malta,Malta"),
 "NL":("NL-Netherlands","nl,en","nederlands,english","nl","Nederland"),
 "NO":("NO-Norway","no,en","norsk,english","no","Norge"),
@@ -2083,7 +2083,7 @@ countries={
 "SE":("SE-Sweden","sv,en","svenska,english","sv","Sverige"),
 "SI":("SI-Slovenia","sl,en","slovenščina,english","sl","Slovenija"),
 "SK":("SK-Slovakia","sk,en","slovenčina,english","sk","Slovensko"),
-"UK":("UK-United%20Kingdom","en","","en","United Kingdom"),
+"UK":("UK-United%20Kingdom","en","","en","United Kingdom"),  # empty quirk
 }
 
 
