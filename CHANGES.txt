@@ -36,4 +36,4 @@ v0.3.8, 2021-02-25 -- fix 'bu to bg' bug.
 v0.3.9, 2021-02-25 -- (NOT RELEASED).
 v1.0.0, 2021-03-02 -- first 'production' version.
 v1.0.1, 2021-03-09 -- fix issue #6.
-v1.0.2, 2021-03-09 -- TENTATIVE
+v1.0.2, 2021-03-09 -- TENTATIVE Don't (lang) parse msg for countries with non-stable quirks.

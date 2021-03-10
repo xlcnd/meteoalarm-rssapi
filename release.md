@@ -1,4 +1,5 @@
 ## What's new?
 
-1. Update quirk for BA.
+
+1. Don't (lang) parse msg for countries with non-stable quirks.
 2. TENTATIVE...
