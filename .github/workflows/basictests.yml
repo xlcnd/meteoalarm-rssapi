@@ -47,10 +47,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with pytest
+    - name: Test with nose
       run: |
-        pip install pytest
-        pytest -q meteoalarm_rssapi/test/
+        pip install nose
+        nosetests meteoalarm_rssapi/test/*
+#    - name: Test with pytest
+#      run: |
+#        pip install pytest
+#        pytest -q meteoalarm_rssapi/test/
 
   basic-tests-windows:
 
