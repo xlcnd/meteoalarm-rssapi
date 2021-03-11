@@ -111,8 +111,10 @@ def parser(rss, country, region, language=None):
                 # get: msg from rows 1, 3, 5, ...
                 if GREEN_MESSAGE in row:
                     continue
+
                 msg = RE_MSG.search(row).group(1)
                 msg = clean(msg)
+
                 if language:
                     msg, status = lang_parser(msg, language, country)
                     language = language if status else ""
