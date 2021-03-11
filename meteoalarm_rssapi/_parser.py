@@ -40,13 +40,16 @@ def lang_parser(msg, lang, country):
     try:
         langs = countries.get(country)[1].split(",")
         quirk = countries.get(country)[2].split(",")
+
         # SPECIAL CASE 0
         if not quirk:
             return (msg, False)
+
         for i, v in enumerate(langs):
             if v == lang:
                 idx = i
                 break
+
         # SPECIAL CASE 1
         if len(quirk) == 1:
             if len(langs) == 1:
@@ -69,6 +72,7 @@ def lang_parser(msg, lang, country):
         )
         parsed = RE_LANG.search(msg).group(1).strip(": ")
         return (parsed, True) if parsed else (msg, False)
+
     except Exception:
         return (msg, False)
 
