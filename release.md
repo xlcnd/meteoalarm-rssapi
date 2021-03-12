@@ -1,5 +1,5 @@
 ## What's new?
 
-
-1. Don't (lang) parse msg for countries with non-stable quirks.
-2. TENTATIVE...
+1. Delete unstable quirks.
+2. Don't parse msg for countries with unstable quirks.
+3. TENTATIVE...
