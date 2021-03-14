@@ -126,6 +126,7 @@ def parser(rss, country, region, language=None):
                         "utf-8",
                     ),
                 )
+                # filter repeated messages (because today/tomorrow on the site)
                 if mcrc in ids:
                     continue
                 ids.append(mcrc)
