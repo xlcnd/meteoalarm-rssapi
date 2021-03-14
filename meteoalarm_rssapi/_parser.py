@@ -93,6 +93,7 @@ def parser(rss, country, region, language=None):
 
         # rows_parser
         result = []
+        ids = []
         rows = RE_TR.findall(table)
         rows = [r for r in rows if "Today<" not in r and "Tomorrow<" not in r]
         for i, row in enumerate(rows):
@@ -125,6 +126,9 @@ def parser(rss, country, region, language=None):
                         "utf-8",
                     ),
                 )
+                if mcrc in ids:
+                    continue
+                ids.append(mcrc)
 
                 acrc = crc32(bytes(region + atype + from_date[0:12], "utf-8"))
 
