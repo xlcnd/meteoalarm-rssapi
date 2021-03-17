@@ -27,6 +27,7 @@ class WEBQuery:
         self._request = Request(url, headers=headers)
 
     def response(self):
+        """Handle response and errors."""
         try:
             response = urlopen(self._request, timeout=self._timeout)
         except HTTPError as e:
@@ -52,5 +53,6 @@ class WEBQuery:
 
 
 def query(url, timeout=TIMEOUT):
+    """Interface function to class WEBQuery."""
     service = WEBQuery(url, timeout)
     return service.data()
