@@ -1,3 +1,5 @@
+"""Parse the rss response."""
+
 import re
 from zlib import crc32
 
@@ -28,6 +30,7 @@ RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
 
 
 def clean(msg):
+    """Clean the message."""
     msg = re.sub(RE_EOL, " ", msg)
     msg = re.sub(RE_WS, " ", msg)
     msg = msg.replace("\u200b", "").replace("\u200c", "")
@@ -37,6 +40,7 @@ def clean(msg):
 
 # pylint: disable=broad-except
 def lang_parser(msg, lang, country):
+    """Parse the message by language if possible."""
     try:
         langs = countries.get(country)[1].split(",")
         quirk = countries.get(country)[2].split(",")
@@ -78,6 +82,7 @@ def lang_parser(msg, lang, country):
 
 
 def parser(rss, country, region, language=None):
+    """Parse the rss."""
     try:
 
         # pub_parser & WHITE (missing info)
