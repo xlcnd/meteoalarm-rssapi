@@ -9,7 +9,7 @@ from .exceptions import MeteoAlarmServiceError, MeteoAlarmUnrecognizedCountryErr
 
 
 def cet2iso8601(cet):
-    """Transform  'CET strings' to iso8601."""
+    """Transform 'CET strings' to iso8601."""
     buf = cet.replace(" CET", ":00+01:00").replace(" CEST", ":00+02:00")
     return "-".join((buf[6:10], buf[3:5], buf[0:2])) + "T" + buf[11:]
 
