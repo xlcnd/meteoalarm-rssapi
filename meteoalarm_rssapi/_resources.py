@@ -2070,7 +2070,7 @@ countries={
 "LT":("LT-Lithuania","lt","lietuviu","lt","Lietuva"),
 "LU":("LU-Luxembourg","fr,de,en","français,deutsch,english","fr,de","Luxembourg,Luxemburg"),
 "LV":("LV-Latvia","en,lv","english,latviešu","lv","Latvija"),
-"MD":("MD-Moldova","ro","","ro","Moldova"),  # empty quirk
+"MD":("MD-Moldova","en,ro","english,româna","ro","Moldova"),
 "ME":("ME-Montenegro","en,sr","english,Црногорски","sr","Црна Гора"),
 "MK":("MK-Republic%20of%20North%20Macedonia","mk","","mk","Северна Македонија"),  # empty quirk
 "MT":("MT-Malta","en,mt","English,Malti","en,mt","Malta,Malta"),
