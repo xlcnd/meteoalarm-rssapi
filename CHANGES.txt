@@ -38,3 +38,4 @@ v1.0.0, 2021-03-02 -- first 'production' version.
 v1.0.1, 2021-03-09 -- fix issue #6.
 v1.0.2, 2021-03-12 -- don't parse msg for countries with non-stable quirks.
 v1.0.3, 2021-03-19 -- Add 'language parsing' to MD.
+v1.0.4, 2021-03-19 -- TENTATIVE
