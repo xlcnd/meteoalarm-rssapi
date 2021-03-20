@@ -1,0 +1,28 @@
+name: blackbot
+
+on: [pull_request]
+
+jobs:
+
+  black-formating-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: 3.7
+      - name: Install Black
+        run: pip install black
+      - name: Run Black 'dry run'
+        run: black --check -l 88 -t py37 .
+      - name: Commit Black changes to the pull request
+        if: failure()
+        run: |
+          black -l 88 -t py37 .
+          git config --global user.name 'blackbot'
+          git config --global user.email 'xlcnd@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout $GITHUB_HEAD_REF
+          git commit -am "[blackbot] code formated with Black"
+          git push
