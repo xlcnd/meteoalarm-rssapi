@@ -15,11 +15,11 @@ jobs:
       - name: Install Black
         run: pip install black
       - name: Run Black 'dry run'
-        run: black --check -l 88 -t py37 meteoalarm_rssapi
+        run: black --check meteoalarm_rssapi
       - name: Commit Black changes to the pull request
         if: failure()
         run: |
-          black -l 88 -t py37 meteoalarm_rssapi
+          black meteoalarm_rssapi
           git config --global user.name 'blackbot'
           git config --global user.email 'xlcnd@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
