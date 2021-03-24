@@ -1,9 +1,8 @@
-"""Resources and data structures for meteoalarm."""
 # flake8:noqa
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-03-22UTC16:50'
+# Produced by 'meteoalarm-tools'@'2021-03-24UTC13:40'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2088,7 +2087,7 @@ countries={
 }
 
 
-KEYS=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages",)
+KEYS=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages")
 countries_list=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
 languages_list=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
 awl_to_num={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
