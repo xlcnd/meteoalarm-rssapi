@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # flake8: noqa
 # isort:skip_file
 
@@ -28,7 +27,7 @@ PROJECT_PACKAGE_NAME = "meteoalarm_rssapi"
 PROJECT_LICENSE = "GPL v3"
 PROJECT_LICENSE_URL = "https://github.com/xlcnd/meteoalarm-rssapi/blob/dev/LICENSE.txt"
 PROJECT_AUTHOR = "xlcnd"
-PROJECT_COPYRIGHT = "{}, {}".format(dt.now().year, PROJECT_AUTHOR)
+PROJECT_COPYRIGHT = f"{dt.now().year}, {PROJECT_AUTHOR}"
 PROJECT_URL = "https://github.com/xlcnd/meteoalarm-rssapi"
 PROJECT_EMAIL = "xlcnd@outlook.com"
 PROJECT_VERSION = __version__
@@ -36,16 +35,16 @@ PROJECT_VERSION = __version__
 PROJECT_GITHUB_USERNAME = "xlcnd"
 PROJECT_GITHUB_REPOSITORY = "meteoalarm-rssapi"
 
-GITHUB_PATH = "{}/{}".format(PROJECT_GITHUB_USERNAME, PROJECT_GITHUB_REPOSITORY)
-GITHUB_URL = "https://github.com/{}".format(GITHUB_PATH)
+GITHUB_PATH = f"{PROJECT_GITHUB_USERNAME}/{PROJECT_GITHUB_REPOSITORY}"
+GITHUB_URL = f"https://github.com/{GITHUB_PATH}"
 
 DOWNLOAD_URL = "{}/archive/{}.zip".format(GITHUB_URL, "v" + PROJECT_VERSION)
 PROJECT_URLS = {
-    "Bug Reports": "{}/issues".format(GITHUB_URL),
+    "Bug Reports": f"{GITHUB_URL}/issues",
     "License": PROJECT_LICENSE_URL,
 }
 
-PYPI_URL = "https://pypi.org/project/{}/".format(PROJECT_PACKAGE_NAME)
+PYPI_URL = f"https://pypi.org/project/{PROJECT_PACKAGE_NAME}/"
 PYPI_CLASSIFIERS = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",

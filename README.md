@@ -19,7 +19,8 @@ Now, lets see a simple example:
 
 ```python
 from meteoalarm_rssapi import MeteoAlarm
-meteo = MeteoAlarm('DE', 'Kreis Ahrweiler', 'de')
+
+meteo = MeteoAlarm("DE", "Kreis Ahrweiler", "de")
 
 print(meteo.alerts())
 ```
@@ -48,7 +49,7 @@ You need to know your [ISO 3166-1 Alpha-2][5] country code (e.g. DE) and the **e
 ```python
 from meteoalarm_rssapi import get_regions
 
-print(get_regions('DE'))
+print(get_regions("DE"))
 ```
 You need to know the [ISO 639-1 code][4] for the message's language (usually the languages available for each country are english ('en') and the local language ('de')). The indication of **language is optional**, and if no language is specified the message will come unparsed and in all available languages.
 

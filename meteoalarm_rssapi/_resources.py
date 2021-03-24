@@ -1,3 +1,4 @@
+"""Resources and data structures for meteoalarm."""
 # flake8:noqa
 # pylint:skip-file
 # isort:skip_file
