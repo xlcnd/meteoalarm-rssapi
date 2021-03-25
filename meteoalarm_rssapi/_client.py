@@ -25,7 +25,7 @@ class MeteoAlarm:
         country: str,
         region: str,
         language: Optional[str] = None,
-        timeout: Optional[int] = TIMEOUT,
+        timeout: int = TIMEOUT,
     ) -> None:
         try:
             country = country.upper()
@@ -47,7 +47,7 @@ class MeteoAlarm:
         iso = country.lower()
         url = f"https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss"
         self._url = url
-        self._timeout = timeout
+        self._timeout: int = timeout
 
     @staticmethod
     def countries() -> Tuple[str, ...]:
@@ -87,6 +87,6 @@ class MeteoAlarm:
             raise MeteoAlarmServiceError()
         return parser(rss, self._country, self._region, self._lang)
 
-    def health_check(self, timeout: Optional[int] = 2) -> bool:
+    def health_check(self, timeout: int = 2) -> bool:
         """Verify if the server is responding."""
         return service_health_check(self._url, timeout)
