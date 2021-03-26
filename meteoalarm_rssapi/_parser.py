@@ -1,6 +1,7 @@
 """Parse the rss response."""
 
 import re
+from typing import Dict, List, Optional, Tuple, Union
 from zlib import crc32
 
 from ._helpers import _days_since, cet2iso8601, strdt2iso8601
@@ -29,7 +30,7 @@ RE_WS = re.compile(r"\s+", re.I | re.M | re.S)
 RE_EOL = re.compile(r"\n", re.I | re.M | re.S)
 
 
-def clean(msg):
+def clean(msg: str) -> str:
     """Clean the message."""
     msg = re.sub(RE_EOL, " ", msg)
     msg = re.sub(RE_WS, " ", msg)
@@ -39,7 +40,7 @@ def clean(msg):
 
 
 # pylint: disable=broad-except
-def lang_parser(msg, lang, country):
+def lang_parser(msg: str, lang: str, country: str) -> Tuple[str, bool]:
     """Parse the message by language if possible."""
     try:
         langs = countries.get(country)[1].split(",")
@@ -81,7 +82,12 @@ def lang_parser(msg, lang, country):
         return (msg, False)
 
 
-def parser(rss, country, region, language=None):
+def parser(
+    rss: str,
+    country: str,
+    region: str,
+    language: Optional[str] = None,
+) -> Union[Tuple[()], Tuple[Dict[str, Union[str, int, List[str]]], ...]]:
     """Parse the rss."""
     try:
 
@@ -123,7 +129,9 @@ def parser(rss, country, region, language=None):
                 if language:
                     msg, status = lang_parser(msg, language, country)
                     language = language if status else ""
-                languages = [language] if language else countries.get(country)[1].split(",")
+                languages: List[str] = (
+                    [language] if language else countries.get(country)[1].split(",")
+                )
 
                 mcrc = crc32(
                     bytes(

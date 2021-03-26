@@ -72,7 +72,7 @@ class MeteoAlarm:
         """Return the list of 'languages' for the country."""
         return get_languages(self._country)
 
-    def alerts(self) -> Union[Tuple[()], Tuple[Dict[str, Union[str, int]], ...]]:
+    def alerts(self) -> Union[Tuple[()], Tuple[Dict[str, Union[str, int, List[str]]], ...]]:
         """Return the list of 'alerts' currently available."""
         try:
             tmfast = int(0.3 * self._timeout)
