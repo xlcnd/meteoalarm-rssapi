@@ -40,19 +40,20 @@ class WEBQuery:
             raise MeteoAlarmServiceError("service bad response")
         return response if response else None
 
-    def data(self):
+    def data(self) -> bytes:
         """Return the uncompressed data."""
         res = self.response()
         if res.info().get("Content-Encoding") == "gzip":
             buf = BytesIO(res.read())
             f = gzip.GzipFile(fileobj=buf)
-            data = f.read()
+            dat = f.read()
         else:
-            data = res.read()
+            dat = res.read()
+        data: bytes = dat
         return data
 
 
-def query(url, timeout=TIMEOUT):
+def query(url: str, timeout: int = TIMEOUT) -> bytes:
     """Interface function to class WEBQuery."""
     service = WEBQuery(url, timeout)
     return service.data()

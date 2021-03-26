@@ -47,7 +47,7 @@ class MeteoAlarm:
         iso = country.lower()
         url = f"https://www.meteoalarm.eu/documents/rss/{iso}/{country}{code}.rss"
         self._url = url
-        self._timeout: int = timeout
+        self._timeout = timeout
 
     @staticmethod
     def countries() -> Tuple[str, ...]:
@@ -76,11 +76,13 @@ class MeteoAlarm:
         """Return the list of 'alerts' currently available."""
         try:
             tmfast = int(0.3 * self._timeout)
-            data = query(self._url, timeout=tmfast) or ""
+            data: bytes = query(self._url, timeout=tmfast) or bytes("", "utf-8")
             if not data:
                 tmslow = int(0.7 * self._timeout)
                 data = query(self._url, timeout=tmslow)
-            rss = data.decode("UTF-8", "ignore") if data else ""
+            if not data:
+                return ()
+            rss = data.decode("UTF-8", "ignore")
             if not rss:
                 return ()
         except MeteoAlarmServiceError:
