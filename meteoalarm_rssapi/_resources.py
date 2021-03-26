@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-03-24UTC13:40'
+# Produced by 'meteoalarm-tools'@'2021-03-26UTC14:42'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -11,7 +11,7 @@
 
 from typing import Dict, Tuple
 
-regions: Dict[str, Dict[str, str]] = {
+regions:Dict[str, Dict[str, str]]={
 "AT":{
 "Burgenland":"008",
 "Kärnten":"006",
@@ -2022,7 +2022,7 @@ regions: Dict[str, Dict[str, str]] = {
 }
 
 
-awt: Dict[str,str]={
+awt:Dict[str,str]={
 "1":"Wind",
 "2":"Snow/Ice",
 "3":"Thunderstorms",
@@ -2038,7 +2038,7 @@ awt: Dict[str,str]={
 }
 
 
-awl: Dict[str, Tuple[str, ...]]={
+awl:Dict[str, Tuple[str, ...]]={
 "0":("White","Missing, insufficient, outdated or suspicious data."),
 "1":("Green","No particular awareness of the weather is required."),
 "2":("Yellow","The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk."),
@@ -2047,7 +2047,7 @@ awl: Dict[str, Tuple[str, ...]]={
 }
 
 
-countries: Dict[str, Tuple[str, str, str, str, str]]={
+countries:Dict[str, Tuple[str, str, str, str, str]]={
 "AT":("AT-Austria","de,en","deutsch,english","de","Österreich"),
 "BA":("BA-Bosnia-Herzegovina","bs,en","","bs","Bosnia I Hercegovína"),  # empty quirk
 "BE":("BE-Belgium","nl,fr","nederlands,français","nl,fr","België,Belgique"),
@@ -2088,9 +2088,9 @@ countries: Dict[str, Tuple[str, str, str, str, str]]={
 }
 
 
-KEYS: Tuple[str, ...]=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages")
-countries_list: Tuple[str, ...]=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
-languages_list: Tuple[str, ...]=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
-awl_to_num: Dict[str, int]={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
-awareness_levels: Tuple[Tuple[str, str], ...]=(('White','Missing, insufficient, outdated or suspicious data.'), ('Green','No particular awareness of the weather is required.'), ('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'), ('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'), ('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.'))
-awareness_types: Tuple[str, ...]=('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
+KEYS:Tuple[str, ...]=("alert_id","country","region","awareness_type","awareness_level","from","until","message","message_id","published","languages")
+countries_list:Tuple[str, ...]=('AT','BA','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IL','IS','IT','LT','LU','LV','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','SE','SI','SK','UK')
+languages_list:Tuple[str, ...]=('bg','bs','cs','de','dk','el','en','es','et','fi','fr','he','hr','hu','is','it','lt','lv','mk','mt','nl','no','pl','pt','ro','sk','sl','sr','sv')
+awl_to_num:Dict[str, int]={'White':0,'Green':1,'Yellow':2,'Orange':3,'Red':4}
+awareness_levels:Tuple[Tuple[str, str], ...]=(('White','Missing, insufficient, outdated or suspicious data.'), ('Green','No particular awareness of the weather is required.'), ('Yellow','The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.'), ('Orange','The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.'), ('Red','The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.'))
+awareness_types:Tuple[str, ...]=('Wind','Snow/Ice','Thunderstorms','Fog','Extreme high temperature','Extreme low temperature','Coastal Event','Forestfire','Avalanches','Rain','Flood','Rain-Flood')
