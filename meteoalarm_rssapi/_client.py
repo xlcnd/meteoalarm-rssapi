@@ -14,7 +14,7 @@ from .exceptions import (
     MeteoAlarmUnrecognizedRegionError,
 )
 
-TIMEOUT: int = 20
+TIMEOUT: float = 20.0  # seconds
 
 
 class MeteoAlarm:
@@ -25,7 +25,7 @@ class MeteoAlarm:
         country: str,
         region: str,
         language: Optional[str] = None,
-        timeout: int = TIMEOUT,
+        timeout: float = TIMEOUT,
     ) -> None:
         try:
             country = country.upper()
@@ -75,10 +75,10 @@ class MeteoAlarm:
     def alerts(self) -> Union[Tuple[()], Tuple[Dict[str, Union[str, int, List[str]]], ...]]:
         """Return the list of 'alerts' currently available."""
         try:
-            tmfast = int(0.3 * self._timeout)
+            tmfast = 0.3 * self._timeout
             data: bytes = query(self._url, timeout=tmfast) or bytes("", "utf-8")
             if not data:
-                tmslow = int(0.7 * self._timeout)
+                tmslow = 0.7 * self._timeout
                 data = query(self._url, timeout=tmslow)
             if not data:
                 return ()
@@ -89,6 +89,6 @@ class MeteoAlarm:
             raise MeteoAlarmServiceError()
         return parser(rss, self._country, self._region, self._lang)
 
-    def health_check(self, timeout: int = 2) -> bool:
+    def health_check(self, timeout: float = 2) -> bool:
         """Verify if the server is responding."""
         return service_health_check(self._url, timeout)

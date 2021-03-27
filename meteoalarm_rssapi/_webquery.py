@@ -8,17 +8,17 @@ from urllib.request import Request, urlopen
 
 from .exceptions import MeteoAlarmServiceError
 
-__version__ = "1.0.4"
+__version__: str = "1.0.4"
 
 
 UA = f"meteoalarm-rssapi/{__version__} (gzip)"
-TIMEOUT = 20
+TIMEOUT: float = 20.0  # seconds
 
 
 class WEBQuery:
     """Class to query web services."""
 
-    def __init__(self, url, timeout=TIMEOUT):
+    def __init__(self, url: str, timeout: float = TIMEOUT) -> None:
         if not url.lower().startswith("http"):
             raise MeteoAlarmServiceError(f"Url ({url}) not allowed!")
         self._url = url
@@ -30,6 +30,7 @@ class WEBQuery:
         """Handle response and errors."""
         try:
             response = urlopen(self._request, timeout=self._timeout)
+            return response
         except HTTPError as e:
             raise MeteoAlarmServiceError(f"({e.code}) {e.msg}")
         except URLError as e:
@@ -38,22 +39,21 @@ class WEBQuery:
             raise MeteoAlarmServiceError("service timeout")
         except TypeError:
             raise MeteoAlarmServiceError("service bad response")
-        return response if response else None
 
     def data(self) -> bytes:
         """Return the uncompressed data."""
         res = self.response()
+        data: bytes
         if res.info().get("Content-Encoding") == "gzip":
             buf = BytesIO(res.read())
             f = gzip.GzipFile(fileobj=buf)
-            dat = f.read()
+            data = f.read()
         else:
-            dat = res.read()
-        data: bytes = dat
+            data = res.read()
         return data
 
 
-def query(url: str, timeout: int = TIMEOUT) -> bytes:
+def query(url: str, timeout: float = TIMEOUT) -> bytes:
     """Interface function to class WEBQuery."""
     service = WEBQuery(url, timeout)
     return service.data()

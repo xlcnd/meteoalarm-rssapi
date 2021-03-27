@@ -57,7 +57,7 @@ def countries_iso() -> Dict[str, str]:
 
 def service_health_check(
     url: str = "http://meteoalarm.eu/robots.txt",
-    timeout: int = 2,
+    timeout: float = 2,
 ) -> bool:
     """Check if the server is responding promptely (2 s)."""
     try:

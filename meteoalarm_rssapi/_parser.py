@@ -43,8 +43,8 @@ def clean(msg: str) -> str:
 def lang_parser(msg: str, lang: str, country: str) -> Tuple[str, bool]:
     """Parse the message by language if possible."""
     try:
-        langs = countries.get(country)[1].split(",")
-        quirk = countries.get(country)[2].split(",")
+        langs: List[str] = countries[country][1].split(",")
+        quirk: List[str] = countries[country][2].split(",")
 
         # SPECIAL CASE 0
         if not quirk:
@@ -75,13 +75,17 @@ def lang_parser(msg: str, lang: str, country: str) -> Tuple[str, bool]:
             r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]),
             re.I | re.M | re.S,
         )
-        parsed = RE_LANG.search(msg).group(1).strip(": ")
-        return (parsed, True) if parsed else (msg, False)
+        match = RE_LANG.search(msg)
+        if match:
+            parsed = match.group(1).strip(": ")
+            return (parsed, True)
+        return (msg, False)
 
     except Exception:
         return (msg, False)
 
 
+# pylint: disable=too-many-branches
 def parser(
     rss: str,
     country: str,
@@ -92,7 +96,10 @@ def parser(
     try:
 
         # pub_parser & WHITE (missing info)
-        pub_date = RE_PUBDATE.search(rss).group(1)[5:]
+        match = RE_PUBDATE.search(rss)
+        if not match:
+            raise MeteoAlarmMissingInfo
+        pub_date = match.group(1)[5:]
         if _days_since(pub_date) > DAYS_PAST_TO_WHITE:
             raise MeteoAlarmMissingInfo
 
@@ -103,7 +110,7 @@ def parser(
             return ()
 
         # rows_parser
-        result = []
+        result: List[Dict[str, Union[str, List[str], int]]] = []
         ids = []
         rows = RE_TR.findall(table)
         rows = [r for r in rows if "Today<" not in r and "Tomorrow<" not in r]
@@ -112,10 +119,16 @@ def parser(
             if i % 2 == 0:
                 # get: awt, awl, from and until from rows 0, 2, 4, ...
                 try:
-                    atype = RE_AWT.search(row).group(1)
-                    alevel = RE_AWL.search(row).group(1)
-                    from_date = RE_FROM.search(row).group(1)
-                    until_date = RE_UNTIL.search(row).group(1)
+                    match = RE_AWT.search(row)
+                    atype = match.group(1) if match else ""
+                    match = RE_AWL.search(row)
+                    alevel = match.group(1) if match else ""
+                    match = RE_FROM.search(row)
+                    from_date = match.group(1) if match else ""
+                    match = RE_UNTIL.search(row)
+                    until_date = match.group(1) if match else ""
+                    if not all([atype, alevel, from_date, until_date]):
+                        raise AttributeError
                 except AttributeError:
                     continue
             else:
@@ -123,14 +136,15 @@ def parser(
                 if GREEN_MESSAGE in row:
                     continue
 
-                msg = RE_MSG.search(row).group(1)
-                msg = clean(msg)
+                match = RE_MSG.search(row)
+                msg = match.group(1) if match else ""
+                msg = clean(msg) if match else ""
 
                 if language:
                     msg, status = lang_parser(msg, language, country)
                     language = language if status else ""
                 languages: List[str] = (
-                    [language] if language else countries.get(country)[1].split(",")
+                    [language] if language else countries[country][1].split(",")
                 )
 
                 mcrc = crc32(
@@ -165,7 +179,7 @@ def parser(
         return tuple(
             sorted(
                 result,
-                key=lambda d: (d.get("from"), -awl_to_num[d.get("awareness_level")]),
+                key=lambda d: (d["from"], -awl_to_num[d["awareness_level"]]),  # type: ignore
             ),
         )
 
