@@ -1,3 +1,3 @@
 ## What's new?
 
-1. TENTATIVE...
+1. Add type annotations
