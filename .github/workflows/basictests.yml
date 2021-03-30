@@ -23,7 +23,7 @@ jobs:
     - name: Test with nose
       run: |
         pip install nose
-        nosetests -v meteoalarm_rssapi/test/*
+        nosetests
 
   basic-tests-macos:
 
@@ -42,7 +42,7 @@ jobs:
     - name: Test with nose
       run: |
         pip install nose
-        nosetests meteoalarm_rssapi/test/*
+        nosetests
 #    - name: Test with pytest
 #      run: |
 #        pip install pytest
@@ -65,4 +65,5 @@ jobs:
     - name: Test with nose
       run: |
         pip install nose
-        nosetests -v meteoalarm_rssapi\test
+        nosetests
+#        nosetests -v meteoalarm_rssapi\test
