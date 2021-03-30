@@ -46,7 +46,7 @@ jobs:
 #    - name: Test with pytest
 #      run: |
 #        pip install pytest
-#        pytest -q meteoalarm_rssapi/test/
+#        pytest
 
   basic-tests-windows:
 
@@ -66,4 +66,3 @@ jobs:
       run: |
         pip install nose
         nosetests
-#        nosetests -v meteoalarm_rssapi\test
