@@ -2,7 +2,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'meteoalarm-tools'@'2021-03-26UTC14:42'
+# Produced by 'meteoalarm-tools'@'2021-04-05UTC17:53'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
@@ -2002,22 +2002,22 @@ regions:Dict[str, Dict[str, str]]={
 "Zvolen":"611",
 },
 "UK":{
-"Dumfries and Galloway":"006",
-"East Midlands":"011",
-"East of England":"012",
-"Grampian":"015",
-"Highland &amp; Islands":"002",
-"London &amp; South East":"013",
-"Lothian &amp; Borders":"004",
-"North East":"007",
-"North West":"009",
-"Northern Ireland":"014",
-"South West":"001",
-"Strathclyde":"005",
-"Tayside, Central &amp; Fife":"003",
-"Wales":"016",
-"West Midlands":"010",
-"Yorkshire and the Humber":"008",
+"Central, Tayside &amp; Fife":"104",
+"East Midlands":"113",
+"East of England":"114",
+"Grampian":"103",
+"Highlands &amp; Eilean Siar":"102",
+"London &amp; South East England":"116",
+"North East England":"110",
+"North West England":"109",
+"Northern Ireland":"108",
+"Orkney &amp; Shetland":"101",
+"South West England":"115",
+"Strathclyde":"105",
+"SW Scotland, Lothian Borders":"107",
+"Wales":"117",
+"West Midlands":"112",
+"Yorkshire &amp; Humber":"111",
 },
 }
 
@@ -2084,7 +2084,7 @@ countries:Dict[str, Tuple[str, str, str, str, str]]={
 "SE":("SE-Sweden","sv,en","svenska,english","sv","Sverige"),
 "SI":("SI-Slovenia","sl,en","slovenščina,english","sl","Slovenija"),
 "SK":("SK-Slovakia","sk,en","slovenčina,english","sk","Slovensko"),
-"UK":("UK-United%20Kingdom","en","","en","United Kingdom"),  # empty quirk
+"UK":("UK-United%20Kingdom","en","english","en","United Kingdom"),
 }
 
 
