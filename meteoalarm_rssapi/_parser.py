@@ -72,7 +72,7 @@ def lang_parser(msg: str, lang: str, country: str) -> Tuple[str, bool]:
             return (parsed, True) if parsed else (msg, False)
         # NORMAL CASE
         RE_LANG = re.compile(
-            r"{}(.*?){}".format(quirk[idx], quirk[idx + 1]),
+            fr"{quirk[idx]}(.*?){quirk[idx + 1]}",
             re.I | re.M | re.S,
         )
         match = RE_LANG.search(msg)
