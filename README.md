@@ -5,6 +5,8 @@
 
 An API for [meteoalarm.eu](https://www.meteoalarm.eu/) weather alerts.
 
+> *WARNING:* METEOLARM change the rss API, so that this library *doesn't work* anymore!
+
 
 > *DISCLAIMER: This is an open source project and doesn't have any affiliation with [meteoalarm.eu](https://www.meteoalarm.eu/)*.
 
